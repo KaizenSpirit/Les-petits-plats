@@ -101,7 +101,7 @@ const recipes = [
             {
                 "ingredient": "Huile d'olive",
                 "quantity": 1,
-               "unit": "cuillères à soupe"
+                "unit": "cuillères à soupe"
             }
         ],
         "time": 80,
@@ -257,7 +257,7 @@ const recipes = [
             }
         ],
         "time": 50,
-        "description": "Étaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
+        "description": "Étaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crème liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur l'assiette.",
         "appliance":"Four",
         "ustensils":["moule à tartelettes (6)", "casserole"]
     }, {
@@ -1774,3 +1774,60 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+
+
+
+
+class RecipeCard {
+    constructor(recipe) {
+        this.id = recipe.id;
+        this.image = recipe.image;
+        this.name = recipe.name;
+        this.servings = recipe.servings;
+        this.ingredients = recipe.ingredients;
+        this.time = recipe.time;
+        this.description = recipe.description;
+        this.appliance = recipe.appliance;
+        this.ustensils = recipe.ustensils;
+    }
+
+    // Méthode pour générer le HTML de la carte de recette
+    renderCards() {
+        const ingredientsHtml = this.ingredients.map(ing =>
+            `<div>${ing.ingredient} ${ing.quantity || ''} ${ing.unit || ''}</div>`
+        ).join('');
+
+        return `
+            <div class="recipe-card position-relative m-t-4">
+                <img src="img/images/${this.image}" alt="${this.name}">
+                <div class="time-label">${this.time}min</div>
+                <div class="card-body">
+                    <h5 class="card-title">${this.name}</h5>
+                    <div class="section-title">RECETTE</div>
+                    <p>${this.description}</p>
+                    <div class="section-title">INGRÉDIENTS</div>
+                    <div class="ingredients">
+                        ${ingredientsHtml}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+function loadAndDisplayRecipes() {
+    const recipesContainer = document.querySelector('.recipes-liste .container');
+    recipesContainer.innerHTML = ''; // Nettoyer les contenus précédents
+
+    try {
+        // Utiliser directement la variable recipes
+        recipes.forEach(recipeData => {
+            const recipeCard = new RecipeCard(recipeData);
+            recipesContainer.innerHTML += recipeCard.renderCards();
+        });
+    } catch (error) {
+        console.error('Erreur lors du chargement des recettes:', error);
+    }
+}
+
+loadAndDisplayRecipes()
