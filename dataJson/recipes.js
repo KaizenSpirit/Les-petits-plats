@@ -1794,23 +1794,30 @@ class RecipeCard {
     // Méthode pour générer le HTML de la carte de recette
     renderCards() {
         const ingredientsHtml = this.ingredients.map(ing =>
-            `<div>${ing.ingredient} ${ing.quantity || ''} ${ing.unit || ''}</div>`
+            `<div class="ingredient-item">
+                <span class="ingredient-name">${ing.ingredient}</span>
+                <span class="ingredient-quantity">${ing.quantity || ''} ${ing.unit || ''}</span>
+            </div>`
         ).join('');
 
         return `
-            <div class="recipe-card position-relative m-t-4">
+            <figure class="recipe-card position-relative m-t-4">
                 <img src="img/images/${this.image}" alt="${this.name}">
                 <div class="time-label">${this.time}min</div>
-                <div class="card-body">
-                    <h5 class="card-title">${this.name}</h5>
-                    <div class="section-title">RECETTE</div>
-                    <p>${this.description}</p>
-                    <div class="section-title">INGRÉDIENTS</div>
+                <figcaption class="card-body">
+                    <h3 class="card-title">${this.name}</h3>
+                    <div class="section-title-recette">
+                        <h4>RECETTE</h4>
+                        <p>${this.description}</p>
+                    </div>
+                    <div class="section-title-ingredients">
+                        <h4>INGRÉDIENTS</h4>
+                    </div>
                     <div class="ingredients">
                         ${ingredientsHtml}
                     </div>
-                </div>
-            </div>
+                </figcaption>
+            </figure>
         `;
     }
 }
@@ -1830,4 +1837,4 @@ function loadAndDisplayRecipes() {
     }
 }
 
-loadAndDisplayRecipes()
+loadAndDisplayRecipes();
