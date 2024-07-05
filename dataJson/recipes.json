@@ -1,4 +1,4 @@
-const recipes = [
+[
     {
         "id": 1,
         "image": "Recette01.jpg",
@@ -1776,65 +1776,3 @@ const recipes = [
 ]
 
 
-
-
-class RecipeCard {
-    constructor(recipe) {
-        this.id = recipe.id;
-        this.image = recipe.image;
-        this.name = recipe.name;
-        this.servings = recipe.servings;
-        this.ingredients = recipe.ingredients;
-        this.time = recipe.time;
-        this.description = recipe.description;
-        this.appliance = recipe.appliance;
-        this.ustensils = recipe.ustensils;
-    }
-
-    // Méthode pour générer le HTML de la carte de recette
-    renderCards() {
-        const ingredientsHtml = this.ingredients.map(ing =>
-            `<div class="ingredient-item">
-                <span class="ingredient-name">${ing.ingredient}</span>
-                <span class="ingredient-quantity">${ing.quantity || ''} ${ing.unit || ''}</span>
-            </div>`
-        ).join('');
-
-        return `
-            <figure class="recipe-card position-relative m-t-4">
-                <img src="img/images/${this.image}" alt="${this.name}">
-                <div class="time-label">${this.time}min</div>
-                <figcaption class="card-body">
-                    <h3 class="card-title">${this.name}</h3>
-                    <div class="section-title-recette">
-                        <h4>RECETTE</h4>
-                        <p>${this.description}</p>
-                    </div>
-                    <div class="section-title-ingredients">
-                        <h4>INGRÉDIENTS</h4>
-                    </div>
-                    <div class="ingredients">
-                        ${ingredientsHtml}
-                    </div>
-                </figcaption>
-            </figure>
-        `;
-    }
-}
-
-function loadAndDisplayRecipes() {
-    const recipesContainer = document.querySelector('.recipes-liste .container');
-    recipesContainer.innerHTML = ''; // Nettoyer les contenus précédents
-
-    try {
-        // Utiliser directement la variable recipes
-        recipes.forEach(recipeData => {
-            const recipeCard = new RecipeCard(recipeData);
-            recipesContainer.innerHTML += recipeCard.renderCards();
-        });
-    } catch (error) {
-        console.error('Erreur lors du chargement des recettes:', error);
-    }
-}
-
-loadAndDisplayRecipes();

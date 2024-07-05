@@ -4,13 +4,12 @@ body {
 }
 
 .header .search {
-  position: relative;
-  background-image: url('img/Background.png');
+  background-image: url('./img/Background.png');
   background-size: cover;
   background-position: center;
   height: 667px;
-  width: 1440px;
-  position: relative;
+  width: 100%;
+  max-width: 1440px;
   color: white;
   text-align: center;
   display: flex;
@@ -19,11 +18,15 @@ body {
   align-items: center;
 }
 
+header{
+  position: relative;
+}
+
 .header-logo {
   position: absolute;
   width: 200px;
-  left: 300px;
-  top: 50px;
+  left: 60px;
+  top: 35px;
   z-index: 1;
   height: 30px;
 }
@@ -33,15 +36,17 @@ body {
   font-size: 2.2rem;
   font-weight: bold;
   margin: 20px 0;
-  width: 55%;
+  width: 90%;
+  max-width: 55%;
 }
 
 .container {
   background-color: rgb(212, 209, 209);
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
   padding-bottom: 45px;
+  overflow: hidden;
 }
 
 .recipes-liste {
@@ -50,14 +55,16 @@ body {
 }
 
 .recipe-card {
-  width: 380px;
-  height: 731px;
+  width: 100%;
+  max-width: 380px;
+  height: auto; 
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: white;
-  margin: 10px 0 5px 0;
+  margin: 10px auto; 
   position: relative;
+  transition: height 0.3s ease; 
 }
 
 .recipe-card img {
@@ -83,7 +90,7 @@ body {
 }
 
 .recipe-card .card-title {
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Anton", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -92,13 +99,18 @@ body {
 
 .recipe-card .section-title-recette {
   margin: 10px 0;
-  height: 140px;
+  height: auto;
+  max-height: 135px;
   overflow: hidden;
   width: 96%;
 }
 
+.recipe-card .section-title-recette h4, p, span {
+  font-family: "Manrope", sans-serif;
+}
+
 .recipe-card .section-title-recette h4 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #7A7A7A;
   margin: 20px 0 0 15px;
@@ -111,8 +123,16 @@ body {
   margin: 15px 0 0 15px;
 }
 
+.recipe-card .section-title-recette:hover {
+  margin-top: 30px;
+  max-height: max-content;
+  overflow: visible;
+  cursor: pointer;
+  justify-content: auto;
+}
+
 .recipe-card .section-title-ingredients h4 {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #7A7A7A;
   margin: 20px 0 10px 10px;
@@ -129,12 +149,12 @@ body {
   width: 50%;
   padding: 5px 10px;
   display: flex;
-  flex-direction: column; /* Ajouter cette ligne pour placer la quantité en dessous */
+  flex-direction: column; 
 }
 
 .recipe-card .ingredient-item {
   display: flex;
-  flex-direction: column; /* Ajouter cette ligne pour placer la quantité en dessous */
+  flex-direction: column; 
   justify-content: space-between;
 }
 
@@ -144,4 +164,27 @@ body {
 
 .recipe-card .ingredient-quantity {
   color: grey;
+}
+
+@media (max-width: 767.98px) {
+  .header .search {
+    height: 25rem;
+  }
+  .header h2 {
+    font-size: 1.5rem;
+    max-width: 80%;
+  }
+  .header-logo {
+    left: 20px;
+    top: 20px;
+  }
+  .recipe-card .card-title {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
