@@ -1,6 +1,9 @@
+import Recipe from '../model/recipe.model.js'
+
 async function fetchRecipes() {
     const response = await fetch('/dataJson/recipes.json');
-    const recipes = await response.json();
+    const recipesData = await response.json();
+    const recipes = recipesData.map(recipe => new Recipe(recipe))
     return recipes;
 }
 

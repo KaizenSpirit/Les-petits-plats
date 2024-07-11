@@ -1,6 +1,6 @@
 import Ingredient from "./ingredient.model.js";
 
-class Recipe {
+export class Recipe {
     constructor(recipe) {
         this.id = recipe.id;
         this.image = recipe.image;
