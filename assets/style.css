@@ -45,7 +45,7 @@ header{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
-  padding-bottom: 45px;
+  padding: 45px 45px;
   overflow: hidden;
 }
 
@@ -54,9 +54,14 @@ header{
   padding-top: 40px;
 }
 
+.recipe-card-container {
+  position: relative; /* Ajouté pour que les cartes enfants puissent être positionnées absolument */
+}
+
 .recipe-card {
   width: 100%;
   max-width: 380px;
+  min-height: 731px;
   height: auto; 
   border-radius: 15px;
   overflow: hidden;
@@ -64,7 +69,13 @@ header{
   background-color: white;
   margin: 10px auto; 
   position: relative;
-  transition: height 0.3s ease; 
+  transition: transform 0.3s ease, height 0.3s ease; 
+}
+
+.recipe-card:hover {
+  transform: scale(1.05); 
+  z-index: 10; 
+  position: absolute;
 }
 
 .recipe-card img {
@@ -77,7 +88,6 @@ header{
   background-color: #ffc107;
   border-radius: 15px;
   padding: 5px 10px;
-  position: absolute;
   top: 10px;
   right: 10px;
   font-size: 12px;
@@ -98,11 +108,14 @@ header{
 }
 
 .recipe-card .section-title-recette {
-  margin: 10px 0;
-  height: auto;
-  max-height: 135px;
-  overflow: hidden;
+  margin: 15px 0 32px 0;
   width: 96%;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.3s ease, -webkit-line-clamp 0.3s ease; /* Ajout des transitions */
 }
 
 .recipe-card .section-title-recette h4, p, span {
@@ -121,14 +134,25 @@ header{
   font-weight: bold;
   color: #1B1B1B;
   margin: 15px 0 0 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: -webkit-line-clamp 0.3s ease; 
 }
 
 .recipe-card .section-title-recette:hover {
-  margin-top: 30px;
-  max-height: max-content;
+  max-height: max-content; 
   overflow: visible;
   cursor: pointer;
   justify-content: auto;
+}
+
+.recipe-card .section-title-recette:hover p {
+  -webkit-line-clamp: unset; 
+  display: block; 
+  transition: -webkit-line-clamp 0.3s ease; 
 }
 
 .recipe-card .section-title-ingredients h4 {
@@ -167,6 +191,10 @@ header{
 }
 
 @media (max-width: 767.98px) {
+  .recipe-card {
+    min-height: 751px;
+    height: auto; 
+  }
   .header .search {
     height: 25rem;
   }
