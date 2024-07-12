@@ -16,6 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 header{
@@ -39,6 +40,121 @@ header{
   width: 90%;
   max-width: 55%;
 }
+
+/* search bar */
+.search-bar {
+  position: relative;
+  width: 90%;
+  max-width: 954px;
+  height: 72px;
+  border-radius: 11px;
+  background-color: #FFF;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  outline: none;
+  margin: 0 auto; /* Centrer la barre de recherche */
+}
+
+.search-bar input {
+  flex-grow: 1;
+  height: 100%;
+  border: none;
+  border-radius: 11px 0 0 11px;
+  padding: 0 10px; /* Ajuster le padding pour une meilleure responsivité */
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-bar input::placeholder {
+  color: #7A7A7A;
+  font-family: "Manrope", sans-serif;
+}
+
+.search-bar input:focus::placeholder {
+  color: transparent;
+}
+
+.search-bar button {
+  width: 52px;
+  height: 52px;
+  background-color: #1B1B1B;
+  border: none;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.search-bar button:hover {
+  background-color: #474444;
+}
+
+.search-bar button svg {
+  width: 25px;
+  height: 30px;
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 75%;
+    height: 60px;
+    padding-left: 20px;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+  }
+
+  .search-bar button {
+    width: 45px;
+    height: 45px;
+  }
+
+  .search-bar button svg {
+    width: 20px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-bar {
+    height: 50px;
+    padding-left: 15px;
+  }
+
+  .search-bar input {
+    font-size: 12px;
+  }
+
+  .search-bar button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .search-bar button svg {
+    width: 18px;
+    height: 22px;
+  }
+}
+/* End of search bar */
+
+#recipeCount{
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #1B1B1B;
+    font-size: 21px;
+    background-color: rgb(212, 209, 209);
+  }
 
 .container {
   background-color: rgb(212, 209, 209);
