@@ -53,7 +53,7 @@ async function init() {
    */
   
   function performSearch() {
-    const req = searchInput.value;
+    const req = searchInput.value; // why "target" is a problem intead of searchInput to choose between click or input event
     if (req.length < 3) {
       displayRecipes(recipes); // Affiche toutes les recettes si moins de 3 caractères sont entrés
     } else {
@@ -62,7 +62,8 @@ async function init() {
     }
   }
 
-  searchButton.addEventListener('click', performSearch);
+  // searchButton.addEventListener('click', performSearch);
+  searchInput.addEventListener('input', (e) => performSearch(e));
   searchInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
       performSearch();
