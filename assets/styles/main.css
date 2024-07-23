@@ -1,0 +1,9 @@
+@import url("header.css");
+@import url("mainSearch.css");
+@import url("dropdowns.css");
+@import url("containerRecipes.css");
+
+body {
+  display: flex;
+  justify-content: center;
+}

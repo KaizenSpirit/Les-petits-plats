@@ -1,0 +1,38 @@
+
+.header .search {
+  background-image: url('../img/Background.png');
+  background-size: cover;
+  background-position: center;
+  height: 667px;
+  width: 100%;
+  max-width: 1440px;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+header{
+  position: relative;
+}
+
+.header-logo {
+  position: absolute;
+  width: 200px;
+  left: 60px;
+  top: 35px;
+  z-index: 1;
+  height: 30px;
+}
+
+.header h2 {
+  color: #ffc107;
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin: 20px 0;
+  width: 90%;
+  max-width: 55%;
+}

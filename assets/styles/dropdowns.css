@@ -1,0 +1,135 @@
+
+.dropdowns{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(212, 209, 209);
+}
+
+.dropdown .btn {
+  position: relative;
+  width: 195px;
+  height: 56px;
+  background-color: #fff; 
+  outline: none;
+  border: 1px solid #fff;
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #1B1B1B;
+  padding: 13px 70px 0 0;
+}
+
+
+.rotate::after {
+  transform: rotate(180deg);
+}
+
+.dropdowns-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  max-height: 315px;
+  outline: none;
+}
+
+.dropdown-menu{
+position: absolute;
+border: 1px solid white;
+margin-top: -8px !important;
+border-radius: 0 0 5px 5px;
+}
+
+.search-container{
+  margin-top: -10px;
+  height: 50px;
+}
+
+.search-container .glass-icon{
+ position: absolute;
+ top: 22px;
+ right: 20px;
+}
+
+.form-control[type="search"]::-webkit-search-cancel-button {
+  height: 2px;
+  width: 2px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: grey;
+}
+
+.search-container .form-control{
+  margin: 20px auto;
+ width: 90%;
+ border-radius: 0;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
+}
+
+#recipeCount{
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 40px 60px 40px 20px;
+    color: #1B1B1B;
+    font-size: 21px;
+    background-color: rgb(212, 209, 209);
+  }
+
+  .dropdownArrow{
+    margin:-26px 0px 22px 155px;
+  }
+
+  .liste{
+    max-height: 120px;
+    overflow-y: scroll;
+    position: relative;
+    scrollbar-width: none;
+  }
+
+
+  @media (max-width: 970px) {
+    .dropdowns{
+      flex-direction: column;
+    }
+
+    #recipeCount{
+      margin: 50px auto;
+      font-size: 33px;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .dropdown .btn {
+      position: relative;
+      width: 70%;
+      padding: 13px 160px 0 0;
+    }
+
+    .dropdowns-container {
+      flex-direction: column;
+      align-items: center;
+      padding-left: 170px;
+    }
+
+
+    .dropdownArrow{
+      margin:-26px 0px 22px 300px;
+    }
+
+    .dropdown-menu{
+      width: 70%;
+    }
+
+    .search-container .glass-icon{
+      top: 22px;
+      right: 70px;
+     }
+     
+     .search-container{
+     width: 90%;
+     }
+  }

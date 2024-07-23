@@ -42,8 +42,7 @@ function searchRecipes(recipes, req) {
 
 async function init() {
   const recipes = await fetchRecipes();
-  displayRecipes(recipes); // Affichage initial de toutes les recettes
-
+  displayRecipes(recipes); 
   const searchInput = document.getElementById('searchInput');
   const searchButton = document.getElementById('searchButton');
 
@@ -52,23 +51,23 @@ async function init() {
    * @function performSearch
    */
   
-  function performSearch() {
-    const req = searchInput.value; // why "target" is a problem intead of searchInput to choose between click or input event
+  function performSearch(e) {
+    const req = e.target.value;
     if (req.length < 3) {
-      displayRecipes(recipes); // Affiche toutes les recettes si moins de 3 caractères sont entrés
+      displayRecipes(recipes); 
     } else {
       const filteredRecipes = searchRecipes(recipes, req);
       displayRecipes(filteredRecipes);
     }
   }
 
-  // searchButton.addEventListener('click', performSearch);
   searchInput.addEventListener('input', (e) => performSearch(e));
   searchInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-      performSearch();
+      performSearch(e);
     }
   });
+
 }
 
 init();
