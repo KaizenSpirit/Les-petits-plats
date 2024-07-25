@@ -1,11 +1,4 @@
-import Recipe from '../model/recipe.model.js';
-
-/**
- * Récupère les recettes depuis un fichier JSON.
- * @async
- * @function fetchRecipes
- * @returns {Promise<Array>} La liste des recettes.
- */
+import Recipe from '../models/recipes.model.js';
 
 async function fetchRecipes() {
     const response = await fetch('/dataJson/recipes.json');

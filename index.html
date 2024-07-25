@@ -54,7 +54,7 @@
                             <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5" />
                         </svg>
                     </div>
-                    <div class="liste"></div>
+                    <div class="liste" id="ingredient-list"></div>
                 </div>
             </div>
             <div class="dropdown m-4">
@@ -73,7 +73,7 @@
                             <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5" />
                         </svg>
                     </div>
-                <div class="liste"></div>
+                <div class="liste" id="appliance-list"></div>
                 </div>
             </div>
             <div class="dropdown m-4">
@@ -92,24 +92,21 @@
                             <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5" />
                         </svg>
                     </div>
-                <div class="liste"></div>
+                <div class="liste" id="unstensils-list" ></div>
                 </div>
             </div>
         </div>
-        <div id="recipeCount">1500 recettes</div>
+        <div id="recipeCount"></div>
     </section>
-    
 
     <section class="recipes-liste">
-        <div class="container">
-            <!-- Cartes de recettes affichées ici dynamiquement -->
-        </div>
+        <div class="container"><!-- Dynamic fill --></div>
     </section>
 
 </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="/src/index.js"></script>
-    <script type="module" src="/src/search/mainSearch.js"></script>
-    <script type="module" src="/src/search/dropdownArrow.js"></script>
+    <script type="module" src="/src/searchAndDisplay/displayRecipes.js"></script>
+    <script type="module" src="/src/searchAndDisplay/dropdownArrow.js"></script>
 </body>
 </html>

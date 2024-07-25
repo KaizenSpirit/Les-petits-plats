@@ -20,7 +20,7 @@
 .recipe-card {
   width: 100%;
   max-width: 380px;
-  min-height: 731px;
+  min-height: 810px;
   height: auto; 
   border-radius: 15px;
   overflow: hidden;
@@ -88,6 +88,11 @@
   margin: 20px 0 0 15px;
 }
 
+.section-title-ingredients h4 span{
+   font-size: 10px ;
+}
+
+
 .recipe-card .section-title-recette p {
   font-size: 14px;
   font-weight: bold;
@@ -148,6 +153,36 @@
 .recipe-card .ingredient-quantity {
   color: grey;
 }
+
+
+
+.section-appliance-ustensils{
+  display: flex;
+ }
+ 
+ .section-title-appliance,
+ .section-title-ustensils{
+  width: 50%;
+  margin-top: -15px;
+ }
+ 
+ 
+ .appliance-name-card,
+ .ustensile-name-card{
+   padding-left: 10px;
+   font-weight:bold;
+   font-size: 14px;
+ }
+ 
+ 
+ .recipe-card .section-title-ingredients h4,
+ .section-title-appliance h4,
+ .section-title-ustensils h4 {
+   font-size: 12px;
+   font-weight: bold;
+   color: #7A7A7A;
+   margin: 20px 0 10px 10px;
+ }
 
 @media (max-width: 767.98px) {
   .recipe-card {
