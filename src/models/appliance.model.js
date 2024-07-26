@@ -8,6 +8,12 @@ class Appliance {
               <span class="appliance-name-card">${this.appliance}</span>
             </div>`;
   }
+
+  generateApplianceDropdown() {
+    return `<div class="appliance-item-dropdown">
+              <span class="appliance-name-dropdown">${this.appliance}</span>
+            </div>`;
+  }
 }
 
 export default Appliance;

@@ -84,10 +84,33 @@ border-radius: 0 0 5px 5px;
   }
 
   .liste{
-    max-height: 120px;
+    height: 210px;
     overflow-y: scroll;
     position: relative;
     scrollbar-width: none;
+  }
+
+  .appliance-item-dropdown,
+  .ingredient-item-dropdown,
+  .ustensile-item-dropdown{
+    width: 119px;
+    margin-left: 20px ;
+    font-family: "Manrope", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .appliance-item-dropdown .appliance-name-dropdown{
+    color: red;
+  }
+  
+  .ingredient-item-dropdown .ingredient-name-dropdown{
+   color: blue;
+  }
+  
+  .ustensile-item-dropdown .ustensile-name-dropdown{
+    color: green;
   }
 
 

@@ -41,72 +41,73 @@
             <div class="dropdown m-4">
                 <button class="btn bg-white text-dark arrow btn-outline-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                     Ingrédients
-                    <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8"
-                    fill="none">
-                    <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
+                    <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
+                        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
                     </svg>
                 </button>
                 <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton2">
                     <div class="search-container">
-                        <input type="search" class="form-control border-1 border-bottom shadow-none mb-2">
+                        <input type="search" id="ingredients-search" class="form-control border-1 border-bottom shadow-none mb-2">
                         <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
                             <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5" />
                         </svg>
                     </div>
-                    <div class="liste" id="ingredient-list"></div>
+                    <div class="liste" id="ingredients-list"></div>
                 </div>
             </div>
             <div class="dropdown m-4">
                 <button class="btn bg-white text-dark arrow btn-outline-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                     Appareils
-                    <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8"
-                    fill="none">
-                    <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
-                </svg>
+                    <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
+                        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
+                    </svg>
                 </button>
                 <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton2">
                     <div class="search-container">
-                        <input type="search" class="form-control border-1 border-bottom shadow-none mb-2">
+                        <input type="search" id="appliances-search" class="form-control border-1 border-bottom shadow-none mb-2">
                         <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
                             <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5" />
                         </svg>
                     </div>
-                <div class="liste" id="appliance-list"></div>
+                    <div class="liste" id="appliances-list"></div>
                 </div>
             </div>
             <div class="dropdown m-4">
                 <button class="btn bg-white text-dark arrow btn-outline-light" type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
                     Ustensiles
-                    <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8"
-                    fill="none">
-                    <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
-                </svg>
+                    <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
+                        <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
+                    </svg>
                 </button>
-                <div class="dropdown-menu pt-0 " aria-labelledby="dropdownMenuButton3">
+                <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton3">
                     <div class="search-container">
-                        <input type="search" class="form-control border-1 border-bottom shadow-none mb-2">
+                        <input type="search" id="ustensiles-search" class="form-control border-1 border-bottom shadow-none mb-2">
                         <svg class="glass-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                             <circle cx="5" cy="5" r="4.75" stroke="#7A7A7A" stroke-width="0.5" />
                             <line x1="9.17678" y1="9.32322" x2="13.6768" y2="13.8232" stroke="#7A7A7A" stroke-width="0.5" />
                         </svg>
                     </div>
-                <div class="liste" id="unstensils-list" ></div>
+                    <div class="liste" id="ustensils-list"></div>
                 </div>
             </div>
         </div>
         <div id="recipeCount"></div>
     </section>
+    
+    
 
     <section class="recipes-liste">
-        <div class="container"><!-- Dynamic fill --></div>
+        <div class="container">
+            <!-- Cartes de recettes affichées ici dynamiquement -->
+        </div>
     </section>
 
 </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="/src/index.js"></script>
-    <script type="module" src="/src/searchAndDisplay/displayRecipes.js"></script>
     <script type="module" src="/src/searchAndDisplay/dropdownArrow.js"></script>
+    <script type="module" src="/src/searchAndDisplay/dropdownFilters.js"></script>
 </body>
 </html>
