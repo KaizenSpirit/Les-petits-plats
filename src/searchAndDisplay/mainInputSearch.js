@@ -1,3 +1,5 @@
+import displayRecipes  from "../index.js";
+
 function searchRecipes(recipes, req) {
   req = req.toLowerCase();
   return recipes.filter(recipe =>
@@ -7,4 +9,16 @@ function searchRecipes(recipes, req) {
   );
 }
 
-export default searchRecipes
+function performSearch(e, recipes) {
+  const req = e.target.value;
+  if (req.length < 3) {
+    displayRecipes(recipes); 
+  } else {
+    const filteredRecipes = searchRecipes(recipes, req);
+    displayRecipes(filteredRecipes);
+  }
+}
+
+export default performSearch;
+
+

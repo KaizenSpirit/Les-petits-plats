@@ -4,6 +4,7 @@ class Ingredient {
     this.quantity = data.quantity;
     this.unit = data.unit;
   }
+
   generateIngredientRecipeCard() {
     return `<div class="ingredient-item-card">
               <span class="ingredient-name-card">${this.ingredient}</span>
@@ -12,9 +13,11 @@ class Ingredient {
   }
 
   generateIngredientDropdown() {
-    return `<div class="ingredient-item-dropdown">
-              <span class="ingredient-name-dropdown">${this.ingredient}</span>
+    return `<div class="ingredient-item-dropdown dropdown-option">
+              <span class="ingredient-name-dropdown">${this.ingredient}<i class="fa-solid fa-circle-xmark close-icon" style="display: none;"></i></span>
             </div>`;
   }
 }
+
 export default Ingredient;
+

@@ -2,7 +2,6 @@ import Ingredient from "../models/ingredient.model.js";
 import Appliance from "../models/appliance.model.js";
 import Ustensile from "../models/ustensile.model.js";
 
-
 class CookFactory {  
   constructor(data) {
     if (data.ingredient) {
@@ -16,3 +15,4 @@ class CookFactory {
 }
 
 export default CookFactory;
+

@@ -74,12 +74,9 @@
   position: relative;
   transition: max-height 0.3s ease, -webkit-line-clamp 0.3s ease; /* Ajout des transitions */
 }
+
 .recipe-card .section-title-recette h4, p, span {
   font-family: "Manrope", sans-serif;
-}
-
-.section-title-ingredients h4 span{
-  font-size: 10px ;
 }
 
 .recipe-card .section-title-recette h4 {
@@ -87,6 +84,10 @@
   font-weight: bold;
   color: #7A7A7A;
   margin: 20px 0 0 15px;
+}
+
+.section-title-ingredients h4 span{
+  font-size: 10px ;
 }
 
 .recipe-card .section-title-recette p {

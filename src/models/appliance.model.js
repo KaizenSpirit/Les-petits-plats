@@ -10,10 +10,11 @@ class Appliance {
   }
 
   generateApplianceDropdown() {
-    return `<div class="appliance-item-dropdown">
-              <span class="appliance-name-dropdown">${this.appliance}</span>
+    return `<div class="appliance-item-dropdown dropdown-option">
+              <span class="appliance-name-dropdown">${this.appliance}<i class="fa-solid fa-circle-xmark close-icon" style="display: none;"></i></span>
             </div>`;
   }
 }
 
 export default Appliance;
+

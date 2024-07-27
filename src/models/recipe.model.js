@@ -28,7 +28,7 @@ export class Recipe {
               <p>${this.description}</p>
             </section>
             <section class="section-title-ingredients">
-                <h4>INGRÉDIENTS <span> (pour ${this.servings} portions)</span></h4>
+              <h4>INGRÉDIENTS <span> (pour ${this.servings} portions)</span></h4>
             </section>
             <div class="ingredients">
               ${this.ingredients.map(ingredient => ingredient.generateIngredientRecipeCard()).join('')}
