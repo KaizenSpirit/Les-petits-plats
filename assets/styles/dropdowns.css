@@ -92,86 +92,86 @@ border-radius: 0 0 5px 5px;
 
   .appliance-item-dropdown,
   .ingredient-item-dropdown,
-  .ustensile-item-dropdown{
+  .ustensile-item-dropdown {
     width: 100%;
-    padding: 7px 0px 7px 20px ;
+    padding: 7px 0px 7px 20px;
     font-family: "Manrope", sans-serif;
     font-weight: 400;
     font-size: 14px;
   }
-
+  
   .appliance-item-dropdown .appliance-name-dropdown,
   .ingredient-item-dropdown .ingredient-name-dropdown,
-  .ustensile-item-dropdown .ustensile-name-dropdown{
-  font-weight: 400;
-  font-size: 14px;
-  color: #1B1B1B;
+  .ustensile-item-dropdown .ustensile-name-dropdown {
+    font-weight: 400;
+    font-size: 14px;
+    color: #1B1B1B;
   }
-
+  
   .appliance-item-dropdown:hover,
   .ingredient-item-dropdown:hover,
-  .ustensile-item-dropdown:hover{
-  cursor: pointer;
-  background-color:#FFD15B;
-  border: 1px solid black;
+  .ustensile-item-dropdown:hover {
+    cursor: pointer;
+    background-color: #FFD15B;
+    border: 1px solid black;
   }
-
-.dropdown-option {
-  position: relative;
-  cursor: pointer;
-}
-
-.close-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  cursor: pointer;
-  display: none;
-}
-
-.selected {
-  background-color: #FFD15B;
-}
-
-.selected .close-icon {
-  display: block;
-}
-
-.tags-container{
-  display: flex;
-  flex-wrap: wrap;
-  background-color: rgb(212, 209, 209);
-  max-width: 1440px;
-  padding-left: 40px;
-}
-
-.custom-tag {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 181px;
-  height: 51px;
-  border-radius: 10px;
-  padding: 10px 10px;
-  background-color: #FFD15B;
-  margin: 4px;
-  box-sizing: border-box;
-}
-
-.custom-tag .ustensile-name-dropdown,
-.custom-tag .ingredient-name-dropdown,
-.custom-tag .appliance-name-dropdown{
-  padding: 30px 10px;
-}
-
-.custom-tag .dropdown-option:hover{
-  border: #FFD15B;
- }
- 
- .custom-tag .dropdown-option{
-  margin-left: -10px;
+  
+  .dropdown-option {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .close-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    display: none;
+  }
+  
+  .selected {
+    background-color: #FFD15B;
+    margin-bottom: 1px;
+  }
+  
+  .selected .close-icon {
+    display: block;
+  }
+  
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(212, 209, 209);
+    max-width: 1440px;
+    padding-left: 40px;
+  }
+  
+  .custom-tag {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 181px;
+    height: 51px;
+    border-radius: 10px;
+    padding: 10px 10px;
+    background-color: #FFD15B;
+    margin: 4px;
+    box-sizing: border-box;
+  }
+  
+  .custom-tag .ustensile-name-tag,
+  .custom-tag .ingredient-name-tag,
+  .custom-tag .appliance-name-tag {
+    font-size: 14px;
+    font-weight: 400;
+    color: #1B1B1B;
+  }
+  
+  .custom-tag .close-icon {
+    display: block;
+    margin-left: 10px;
   }
 
 

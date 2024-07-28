@@ -10,7 +10,7 @@ function filterDropdownOptions(inputElement, listElement,type) {
     options.forEach(option => {
       const text = option.textContent.toLowerCase();
       if (text.includes(filter)) {
-        option.style.display = 'block'; // Show matching option
+       // Show matching option
         filteredOptions.push(option);
       } else {
         option.style.display = 'none'; // Hide non-matching option

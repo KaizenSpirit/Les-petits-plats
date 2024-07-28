@@ -17,6 +17,12 @@ class Ingredient {
               <span class="ingredient-name-dropdown">${this.ingredient}<i class="fa-solid fa-circle-xmark close-icon" style="display: none;"></i></span>
             </div>`;
   }
+
+  generateIngredientsTags() {
+    return `<div class="ingredient-item-tag tag custom-tag">
+              <span class="ingredient-name-tag">${this.ingredient}<i class="fa-solid fa-circle-xmark close-icon"></i></span>
+            </div>`;
+  }
 }
 
 export default Ingredient;
