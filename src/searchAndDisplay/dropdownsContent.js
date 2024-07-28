@@ -66,10 +66,10 @@ function populateDropdownOptions(containerId, optionsList, type) {
     }
 
     const optionElement = document.createElement('div');
-    optionElement.classList.add('.after-filter');
+    optionElement.classList.add('dropdown-option');
     optionElement.innerHTML = htmlContent;
 
-    addOptionEventListeners(optionElement);
+    addOptionEventListeners(optionElement,type);
     container.appendChild(optionElement);
   });
 }

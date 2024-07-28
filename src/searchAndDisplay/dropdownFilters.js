@@ -1,6 +1,6 @@
 import addOptionEventListeners  from './addCloseIcone.js';
 
-function filterDropdownOptions(inputElement, listElement) {
+function filterDropdownOptions(inputElement, listElement,type) {
   inputElement.addEventListener('input', function() {
     const filter = inputElement.value.toLowerCase();
     const options = Array.from(listElement.querySelectorAll('.dropdown-option'));
@@ -32,7 +32,7 @@ function filterDropdownOptions(inputElement, listElement) {
 
     // Add event listeners to the filtered options
     filteredOptions.forEach(option => {
-      addOptionEventListeners(option);
+      addOptionEventListeners(option,type);
     });
   });
 }
@@ -45,14 +45,14 @@ function initDropdownFilters() {
   const ustensileInput = document.querySelector('#ustensils-search');
   const ustensileList = document.querySelector('#ustensils-list');
   if (ingredientInput && ingredientList) {
-    filterDropdownOptions(ingredientInput, ingredientList);
+    filterDropdownOptions(ingredientInput, ingredientList,'ingredient');
   }
   if (applianceInput && applianceList) {
-    filterDropdownOptions(applianceInput, applianceList);
+    filterDropdownOptions(applianceInput, applianceList,'appliance');
   }
   if (ustensileInput && ustensileList) {
-    filterDropdownOptions(ustensileInput, ustensileList);
+    filterDropdownOptions(ustensileInput, ustensileList,'ustensile');
   }
 }
 
-document.addEventListener('DOMContentLoaded', initDropdownFilters);
+initDropdownFilters()

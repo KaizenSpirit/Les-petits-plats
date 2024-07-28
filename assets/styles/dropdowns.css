@@ -115,28 +115,9 @@ border-radius: 0 0 5px 5px;
   background-color:#FFD15B;
   border: 1px solid black;
   }
-  .after-filter{
-    padding: 7px 0px 7px 20px;
-    cursor: pointer;
-  }
 
-  .after-filter:hover{
-    padding: 7px 0px 7px 20px;
-    cursor: pointer;
-    background-color:#FFD15B;
-    border: 1px solid black;
-  }
-
-
-
-/* ////////////////////////////////
-////////////////////////////////
-////////////////////////////////
-////////////////////////////////
-//////////////////////////////// */
 .dropdown-option {
   position: relative;
-  padding-right: 30px;
   cursor: pointer;
 }
 
@@ -156,6 +137,43 @@ border-radius: 0 0 5px 5px;
 .selected .close-icon {
   display: block;
 }
+
+.tags-container{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(212, 209, 209);
+  max-width: 1440px;
+  padding-left: 40px;
+}
+
+.custom-tag {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 181px;
+  height: 51px;
+  border-radius: 10px;
+  padding: 10px 10px;
+  background-color: #FFD15B;
+  margin: 4px;
+  box-sizing: border-box;
+}
+
+.custom-tag .ustensile-name-dropdown,
+.custom-tag .ingredient-name-dropdown,
+.custom-tag .appliance-name-dropdown{
+  padding: 30px 10px;
+}
+
+.custom-tag .dropdown-option:hover{
+  border: #FFD15B;
+ }
+ 
+ .custom-tag .dropdown-option{
+  margin-left: -10px;
+  }
+
 
 
   @media (max-width: 970px) {
