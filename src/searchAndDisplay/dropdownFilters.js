@@ -4,8 +4,17 @@ function filterDropdownOptions(inputElement, listElement,type) {
   inputElement.addEventListener('input', function() {
     const filter = inputElement.value.toLowerCase();
     const options = Array.from(listElement.querySelectorAll('.dropdown-option'));
-
     const filteredOptions = [];
+
+    // If input is string empty
+    if (filter === '') {
+      // If true, displey all options
+      options.forEach(option => {
+        option.style.display = '';
+        addOptionEventListeners(option, type);
+      });
+      return; // Stop function
+    }
 
     options.forEach(option => {
       const text = option.textContent.toLowerCase();
@@ -16,6 +25,7 @@ function filterDropdownOptions(inputElement, listElement,type) {
         option.style.display = 'none'; // Hide non-matching option
       }
     });
+
 
     // Clear the list and append filtered options to move them to the top
     listElement.innerHTML = '';

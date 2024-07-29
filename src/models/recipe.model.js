@@ -17,10 +17,10 @@ export class Recipe {
 
   renderCards() {
     return `
-<div class="recipe-card-container">
+<article class="recipe-card-container">
         <figure class="recipe-card position-relative m-t-4">
           <img src="./../assets/img/images/${this.image}" alt="${this.name}">
-          <div class="time-label position-absolute">${this.time}min</div>
+          <span class="time-label position-absolute">${this.time}min</span>
           <figcaption class="card-body">
             <h3 class="card-title">${this.name}</h3>
             <section class="section-title-recette">
@@ -28,7 +28,7 @@ export class Recipe {
               <p>${this.description}</p>
             </section>
             <section class="section-title-ingredients">
-              <h4>INGRÉDIENTS <span> (pour ${this.servings} portions)</span></h4>
+              <h4>INGRÉDIENTS <span> (pour ${this.servings} portion${this.servings > 1 ? 's' : ""})</span></h4>
             </section>
             <div class="ingredients">
               ${this.ingredients.map(ingredient => ingredient.generateIngredientRecipeCard()).join('')}
@@ -45,7 +45,7 @@ export class Recipe {
           </section> 
           </figcaption>
         </figure>
-        </div>
+        </article>
     `;
   }
 }
