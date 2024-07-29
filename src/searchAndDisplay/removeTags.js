@@ -1,3 +1,5 @@
+import selectedOptions from './dropdownFilters.js'
+
 export function findCorrespondingOptionClickedToRemove(tagElement, type) {
   const optionLists = {
     'ingredient': '#ingredients-list',
@@ -16,7 +18,15 @@ function removeTag(tagElement, type) {
     const correspondingOption = findCorrespondingOptionClickedToRemove(tag, type);
     if (correspondingOption) {
       correspondingOption.classList.remove('selected');
-      correspondingOption.querySelector('.close-icon').style.display = 'none';
+      const closeIcon = correspondingOption.querySelector('.close-icon');
+      if (closeIcon) {
+        closeIcon.style.display = 'none';
+      }
+    }
+    const optionText = tag.textContent.trim();
+    const index = selectedOptions[type].indexOf(optionText);
+    if (index !== -1) {
+      selectedOptions[type].splice(index, 1);
     }
     tagsContainer.removeChild(tag);
   }

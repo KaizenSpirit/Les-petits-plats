@@ -15,14 +15,13 @@ async function initializeDropdownOptions() {
     allAppliances.push(recipe.appliance.appliance);
     recipe.ustensils.forEach(ust => {
       if (typeof ust === 'object' && ust.hasOwnProperty('ustensile')) {
-        allUstensils.push(ust.ustensile); // Extraire la propriété 'ustensile'
+        allUstensils.push(ust.ustensile); 
       } else if (typeof ust === 'string') {
-        allUstensils.push(ust); // Si déjà une chaîne de caractères
+        allUstensils.push(ust); 
       }
     });
   });
 
-  // Éliminer les doublons
   const uniqueIngredients = removeDuplicates(allIngredients.map(ingredient => ingredient.toLowerCase().charAt(0).toUpperCase() + ingredient.slice(1).toLowerCase()));
   const uniqueAppliances = removeDuplicates(allAppliances.map(appliance => appliance.toLowerCase().charAt(0).toUpperCase() + appliance.slice(1).toLowerCase()));
   const normalizedUstensils = allUstensils.filter(ustensil => typeof ustensil === 'string').map(ustensil => ustensil.toLowerCase().charAt(0).toUpperCase() + ustensil.slice(1).toLowerCase());

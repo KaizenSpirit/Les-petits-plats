@@ -1,48 +1,73 @@
-import addOptionEventListeners  from './addCloseIcone.js';
+import addOptionEventListeners from './addCloseIcone.js';
 
-function filterDropdownOptions(inputElement, listElement,type) {
+const selectedOptions = { 
+  ingredient: [],
+  appliance: [],
+  ustensile: []
+};
+
+function filterDropdownOptions(inputElement, listElement, type) {
   inputElement.addEventListener('input', function() {
     const filter = inputElement.value.toLowerCase();
     const options = Array.from(listElement.querySelectorAll('.dropdown-option'));
+
     const filteredOptions = [];
 
-    // If input is string empty
     if (filter === '') {
-      // If true, displey all options
       options.forEach(option => {
-        option.style.display = '';
+        option.style.display = ''; 
+        const optionText = option.textContent.trim();
+        option.classList.remove('selected');
+        const closeIcon = option.querySelector('.close-icon');
+        if (closeIcon) {
+          closeIcon.style.display = 'none';
+        }
+        if (selectedOptions[type].includes(optionText)) {
+          option.classList.add('selected');
+          if (closeIcon) {
+            closeIcon.style.display = 'block';
+          }
+        }
         addOptionEventListeners(option, type);
       });
-      return; // Stop function
+      return; 
     }
 
     options.forEach(option => {
       const text = option.textContent.toLowerCase();
       if (text.includes(filter)) {
-       // Show matching option
         filteredOptions.push(option);
       } else {
-        option.style.display = 'none'; // Hide non-matching option
+        option.style.display = 'none';
       }
     });
 
-
-    // Clear the list and append filtered options to move them to the top
     listElement.innerHTML = '';
     filteredOptions.forEach(option => {
       listElement.appendChild(option);
     });
 
-    // Re-append all options to maintain original order for those that were not hidden
     options.forEach(option => {
       if (!filteredOptions.includes(option)) {
         listElement.appendChild(option);
       }
     });
 
-    // Add event listeners to the filtered options
     filteredOptions.forEach(option => {
-      addOptionEventListeners(option,type);
+      const optionText = option.textContent.trim();
+      const closeIcon = option.querySelector('.close-icon');
+      if (selectedOptions[type].includes(optionText)) {
+        option.classList.add('selected');
+        if (closeIcon) {
+          closeIcon.style.display = 'block';
+        }
+      } else {
+        option.classList.remove('selected');
+        if (closeIcon) {
+          closeIcon.style.display = 'none';
+        }
+      }
+      addOptionEventListeners(option, type);
     });
   });
 }
@@ -54,15 +79,18 @@ function initDropdownFilters() {
   const applianceList = document.querySelector('#appliances-list');
   const ustensileInput = document.querySelector('#ustensils-search');
   const ustensileList = document.querySelector('#ustensils-list');
+  
   if (ingredientInput && ingredientList) {
-    filterDropdownOptions(ingredientInput, ingredientList,'ingredient');
+    filterDropdownOptions(ingredientInput, ingredientList, 'ingredient');
   }
   if (applianceInput && applianceList) {
-    filterDropdownOptions(applianceInput, applianceList,'appliance');
+    filterDropdownOptions(applianceInput, applianceList, 'appliance');
   }
   if (ustensileInput && ustensileList) {
-    filterDropdownOptions(ustensileInput, ustensileList,'ustensile');
+    filterDropdownOptions(ustensileInput, ustensileList, 'ustensile');
   }
 }
 
-initDropdownFilters()
+initDropdownFilters();
+
+export default selectedOptions;
