@@ -1,5 +1,5 @@
 import fetchRecipes from '../api/api.js';
-import CookFactory from '../dropdownsFactory/dropFactory.js';
+import CookFactory from '../dropdownsFactory/cookFactory.js';
 import addOptionEventListeners  from './addCloseIcone.js';
 
 async function initializeDropdownOptions() {
@@ -43,24 +43,13 @@ function populateDropdownOptions(containerId, optionsList, type) {
   container.innerHTML = '';
   optionsList.forEach(option => {
     let htmlContent = '';
-    const data = {};
-    if (type === 'ingredient') {
-      data.ingredient = option;
-    } else if (type === 'appliance') {
-      data.appliance = option;
+    const factoryInstance = new CookFactory(option, type);
+
+    if (type === 'ingredient' || type === 'appliance') {
+      htmlContent = factoryInstance.generateDropdown();
     } else if (type === 'ustensile') {
-      data.ustensils = [option];
-    }
-
-    const factoryInstance = new CookFactory(data);
-
-    if (type === 'ingredient' && factoryInstance.generateIngredientDropdown) {
-      htmlContent = factoryInstance.generateIngredientDropdown();
-    } else if (type === 'appliance' && factoryInstance.generateApplianceDropdown) {
-      htmlContent = factoryInstance.generateApplianceDropdown();
-    } else if (type === 'ustensile' && Array.isArray(factoryInstance)) {
       factoryInstance.forEach(ust => {
-        htmlContent += ust.generateUstensileDropdown();
+        htmlContent += ust.generateDropdown();
       });
     }
 

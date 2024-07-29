@@ -13,13 +13,13 @@ class Ustensile {
             </div>`;
   }
 
-  generateUstensileDropdown() {
+  generateDropdown() {
     return `<div class="ustensile-item-dropdown dropdown-option">
               <span class="ustensile-name-dropdown">${this.ustensile}<i class="fa-solid fa-circle-xmark close-icon" style="display: none;"></i></span>
             </div>`;
   }
 
-  generateUstensilsTags() {
+  generateTag() {
     return `<div class="ustensile-item-tag tag custom-tag">
               <span class="ustensile-name-tag">${this.ustensile}<i class="fa-solid fa-circle-xmark close-icon"></i></span>
             </div>`;

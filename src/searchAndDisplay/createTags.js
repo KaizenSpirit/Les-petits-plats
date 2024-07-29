@@ -8,17 +8,17 @@ function createTag(optionElement, type) {
   const tagsContainer = document.getElementById('tags-container');
   let tagElement;
   if (type === 'ingredient') {
-    const ingredient = new Ingredient({ ingredient: optionElement.textContent.trim() });
+    const ingredient = new Ingredient(optionElement.textContent.trim());
     tagElement = document.createElement('div');
-    tagElement.innerHTML = ingredient.generateIngredientsTags();
+    tagElement.innerHTML = ingredient.generateTag();
   } else if (type === 'appliance') {
     const appliance = new Appliance(optionElement.textContent.trim());
     tagElement = document.createElement('div');
-    tagElement.innerHTML = appliance.generateAppliancesTags();
+    tagElement.innerHTML = appliance.generateTag();
   } else if (type === 'ustensile') {
     const ustensile = new Ustensile(optionElement.textContent.trim());
     tagElement = document.createElement('div');
-    tagElement.innerHTML = ustensile.generateUstensilsTags();
+    tagElement.innerHTML = ustensile.generateTag();
   }
 
   tagsContainer.appendChild(tagElement);

@@ -8,7 +8,7 @@ export class Recipe {
     this.image = recipe.image;
     this.name = recipe.name;
     this.servings = recipe.servings;
-    this.ingredients = recipe.ingredients.map(ing => new Ingredient(ing));
+    this.ingredients = recipe.ingredients.map(ing => new Ingredient(ing.ingredient, ing.quantity, ing.unit));
     this.time = recipe.time;
     this.description = recipe.description;
     this.appliance = new Appliance(recipe.appliance);
