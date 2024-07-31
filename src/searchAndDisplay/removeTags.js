@@ -1,4 +1,6 @@
 import selectedOptions from './dropdownFilters.js'
+import filterRecipes  from './mainInputSearch.js';
+
 
 export function findCorrespondingOptionClickedToRemove(tagElement, type) {
   const optionLists = {
@@ -29,6 +31,7 @@ function removeTag(tagElement, type) {
       selectedOptions[type].splice(index, 1);
     }
     tagsContainer.removeChild(tag);
+    filterRecipes()
   }
 }
 

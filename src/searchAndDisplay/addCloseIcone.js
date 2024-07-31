@@ -1,6 +1,7 @@
 import createTag from "./createTags.js";
 import removeTag from "./removeTags.js";
 import selectedOptions from './dropdownFilters.js';
+import filterRecipes from './mainInputSearch.js'
 
 function addOptionCloseEventListeners(optionElement, type) {
   optionElement.addEventListener('click', (e) => {
@@ -30,6 +31,7 @@ function addOptionCloseEventListeners(optionElement, type) {
           selectedOptions[type].push(optionText);
         }
       }
+      filterRecipes()
     }
   });
 }
