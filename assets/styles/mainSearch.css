@@ -51,12 +51,18 @@
 }
 
 .search-bar button:hover {
-  background-color: #474444;
+  background-color: #ffc107;
 }
 
 .search-bar button svg {
   width: 25px;
   height: 30px;
+  stroke: white;
+  transition: stroke 0.3s;
+}
+
+.search-bar button:hover svg {
+  stroke: #1B1B1B;
 }
 
 
