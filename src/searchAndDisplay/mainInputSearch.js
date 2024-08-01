@@ -1,6 +1,9 @@
 import displayRecipes  from "../index.js";
 import fetchRecipes from '../api/api.js';
 import selectedOptions from './dropdownFilters.js';
+import updateDropdownOptions from "./updateDropdownOptions.js";
+// import updateDropdownOptions from './updateDropdownOptions.js';
+
 
 function getMainSearchValue() {
   const searchInput = document.getElementById('searchInput');
@@ -24,12 +27,15 @@ export async function filterRecipes() {
 
     const mainSearchMatch = recipe.name.toLowerCase().includes(mainSearchValue) ||
       recipe.description.toLowerCase().includes(mainSearchValue) ||
-      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(mainSearchValue));
+      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(mainSearchValue)) ||
+      recipe.appliance.appliance.toLowerCase().includes(mainSearchValue) ||
+      recipe.ustensils.some(ust => ust.ustensile.toLowerCase().includes(mainSearchValue));
 
     return ingredientsMatch && appliancesMatch && ustensilsMatch && (mainSearchValue.length < 3 || mainSearchMatch);
   });
 
   displayRecipes(filteredRecipes);
+  updateDropdownOptions(filteredRecipes)
 }
 
 function performSearch(e) {
