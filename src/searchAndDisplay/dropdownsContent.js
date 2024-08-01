@@ -1,6 +1,5 @@
 import fetchRecipes from '../api/api.js';
-import CookFactory from '../dropdownsFactory/cookFactory.js';
-import addOptionEventListeners  from './addCloseIcone.js';
+import { removeDuplicates, capitalize, populateDropdownOptions } from './dropdownsUtils.js';
 
 async function initializeDropdownOptions() {
   const recipes = await fetchRecipes();
@@ -22,9 +21,9 @@ async function initializeDropdownOptions() {
     });
   });
 
-  const uniqueIngredients = removeDuplicates(allIngredients.map(ingredient => ingredient.toLowerCase().charAt(0).toUpperCase() + ingredient.slice(1).toLowerCase()));
-  const uniqueAppliances = removeDuplicates(allAppliances.map(appliance => appliance.toLowerCase().charAt(0).toUpperCase() + appliance.slice(1).toLowerCase()));
-  const normalizedUstensils = allUstensils.filter(ustensil => typeof ustensil === 'string').map(ustensil => ustensil.toLowerCase().charAt(0).toUpperCase() + ustensil.slice(1).toLowerCase());
+  const uniqueIngredients = removeDuplicates(allIngredients.map(capitalize));
+  const uniqueAppliances = removeDuplicates(allAppliances.map(capitalize));
+  const normalizedUstensils = allUstensils.filter(ustensil => typeof ustensil === 'string').map(capitalize);
   const uniqueUstensils = removeDuplicates(normalizedUstensils);
 
   populateDropdownOptions('#ingredients-list', uniqueIngredients, 'ingredient');
@@ -33,34 +32,5 @@ async function initializeDropdownOptions() {
 
   return recipes;
 }
-
-function removeDuplicates(array) {
-  return array.filter((item, index) => array.indexOf(item) === index);
-}
-
-function populateDropdownOptions(containerId, optionsList, type) {
-  const container = document.querySelector(containerId);
-  container.innerHTML = '';
-  optionsList.forEach(option => {
-    let htmlContent = '';
-    const factoryInstance = new CookFactory(option, type);
-
-    if (type === 'ingredient' || type === 'appliance') {
-      htmlContent = factoryInstance.generateDropdown();
-    } else if (type === 'ustensile') {
-      factoryInstance.forEach(ust => {
-        htmlContent += ust.generateDropdown();
-      });
-    }
-
-    const optionElement = document.createElement('div');
-    optionElement.classList.add('dropdown-option');
-    optionElement.innerHTML = htmlContent;
-
-    addOptionEventListeners(optionElement,type);
-    container.appendChild(optionElement);
-  });
-}
-
 
 export default initializeDropdownOptions;
