@@ -1,5 +1,6 @@
 import performSearch  from './searchAndDisplay/mainInputSearch.js';
 import initializeDropdownOptions from './searchAndDisplay/dropdownsContent.js';
+import showDescription from './searchAndDisplay/showDescription.js';
 
   function displayRecipes(recipes) {
   const recipesContainer = document.querySelector('.recipes-liste .container');
@@ -9,6 +10,7 @@ import initializeDropdownOptions from './searchAndDisplay/dropdownsContent.js';
   recipes.forEach(recipe => {
     recipesContainer.innerHTML += recipe.renderCards();
   });
+  showDescription()
 }
 
   async function init() {

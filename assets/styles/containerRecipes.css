@@ -103,18 +103,25 @@
   transition: -webkit-line-clamp 0.3s ease; 
 }
 
-.recipe-card .section-title-recette:hover {
+.recipe-card .section-title-recette {
   max-height: max-content; 
   overflow: visible;
   cursor: pointer;
   justify-content: auto;
 }
 
-.recipe-card .section-title-recette:hover p {
+/* .recipe-card .section-title-recette:hover p {
   -webkit-line-clamp: unset; 
   display: block; 
   transition: -webkit-line-clamp 0.3s ease; 
-}
+  replaced by below code .expanded
+} */
+
+.recipe-card .section-title-recette .expanded {
+  -webkit-line-clamp: unset; 
+  display: block; 
+  transition: -webkit-line-clamp 0.3s ease; 
+}  
 
 .section-appliance-ustensils{
  display: flex;
