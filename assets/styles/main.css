@@ -8,3 +8,16 @@ body {
   display: flex;
   justify-content: center;
 }
+
+.input-error {
+  border-color: red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.9em;
+  position: absolute;
+  font-family: "Manrope", sans-serif;
+  top: 50px;
+  left: 20px;
+}
