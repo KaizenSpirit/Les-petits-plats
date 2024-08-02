@@ -174,7 +174,16 @@ border-radius: 0 0 5px 5px;
     margin-left: 10px;
   }
 
-
+  .search-container .search-close-dropdown {
+    position: absolute;
+    display: none;
+    cursor: pointer;
+    top: 25px;
+    height: 9px;
+    width: 9px;
+    right: 43px;
+    height: 10px;
+}
 
   @media (max-width: 970px) {
     .dropdowns{
