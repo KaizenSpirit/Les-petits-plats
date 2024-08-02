@@ -4,49 +4,73 @@ import selectedOptions from './dropdownFilters.js';
 import updateDropdownOptions from "./updateDropdownOptions.js";
 import { getMainSearchValue, getRandomSuggestions, displayNoRecipesMessage } from "./mainSearchUtils.js";
 
-export async function filterRecipes() {
+export async function filterRecipesWithLoop() {
   const recipes = await fetchRecipes();
   const mainSearchValue = getMainSearchValue();
+  const filteredRecipes = [];
 
-  const filteredRecipes = recipes.filter(recipe => {
-    const ingredientsMatch = selectedOptions.ingredient.every(ing =>
-      recipe.ingredients.some(recipeIng => recipeIng.ingredient.toLowerCase() === ing.toLowerCase())
-    );
-    const appliancesMatch = selectedOptions.appliance.every(app =>
-      recipe.appliance.appliance.toLowerCase() === app.toLowerCase()
-    );
-    const ustensilsMatch = selectedOptions.ustensile.every(ust =>
-      recipe.ustensils.some(recipeUst => recipeUst.ustensile && recipeUst.ustensile.toLowerCase() === ust.toLowerCase())
-    );
+for (let i = 0; i < recipes.length; i++) {
+  const recipe = recipes[i];
 
-    const mainSearchMatch = recipe.name.toLowerCase().includes(mainSearchValue) ||
-      recipe.description.toLowerCase().includes(mainSearchValue) ||
-      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(mainSearchValue)) ||
-      recipe.appliance.appliance.toLowerCase().includes(mainSearchValue) ||
-      recipe.ustensils.some(ust => ust.ustensile.toLowerCase().includes(mainSearchValue));
+const ingredientsMatch = selectedOptions.ingredient.every(ing =>
+  recipe.ingredients.some(recipeIng => recipeIng.ingredient.toLowerCase().includes(ing.toLowerCase()))
+  );
 
-    return ingredientsMatch && appliancesMatch && ustensilsMatch && (mainSearchValue.length < 3 || mainSearchMatch);
-  });
+const appliancesMatch = selectedOptions.appliance.every(app =>
+  recipe.appliance.appliance.toLowerCase().includes(app.toLowerCase())
+);
+
+const ustensilsMatch = selectedOptions.ustensile.every(ust =>
+  recipe.ustensils.some(recipeUst => recipeUst.ustensile && recipeUst.ustensile.toLowerCase().includes(ust.toLowerCase()))
+);
+
+let mainSearchMatch = false;
+if (mainSearchValue.length >= 3) {
+  if (recipe.name.toLowerCase().includes(mainSearchValue) ||
+    recipe.description.toLowerCase().includes(mainSearchValue) ||
+    recipe.appliance.appliance.toLowerCase().includes(mainSearchValue)) {
+    mainSearchMatch = true;
+} else {
+  for (let j = 0; j < recipe.ingredients.length; j++) {
+    if (recipe.ingredients[j].ingredient.toLowerCase().includes(mainSearchValue)) {
+      mainSearchMatch = true;
+          break;
+      }
+    }
+  if (!mainSearchMatch) {
+  for (let j = 0; j < recipe.ustensils.length; j++) {
+    if (recipe.ustensils[j].ustensile.toLowerCase().includes(mainSearchValue)) {
+      mainSearchMatch = true;
+      break;
+        }
+      }
+    }
+  }
+} else {
+    mainSearchMatch = true;
+}
+  if (ingredientsMatch && appliancesMatch && ustensilsMatch && mainSearchMatch) {
+      filteredRecipes.push(recipe);
+    }
+  }
 
   displayRecipes(filteredRecipes);
-
   if (filteredRecipes.length === 0) {
     const suggestions = getRandomSuggestions(recipes);
     displayNoRecipesMessage(mainSearchValue, suggestions);
   }
-
-  updateDropdownOptions(filteredRecipes)
+  updateDropdownOptions(filteredRecipes);
 }
 
-function performSearch(e) {
-  const req = e && e.target ? e.target.value : ''; 
+function performSearchWithLoop(e) {
+  const req = e && e.target ? e.target.value : '';
   if (req.length < 3) {
-    filterRecipes();
+    filterRecipesWithLoop();
   } else {
-    filterRecipes();
+    filterRecipesWithLoop();
   }
 }
 
-export default performSearch;
+export default performSearchWithLoop;
 
 
