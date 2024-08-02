@@ -30,7 +30,7 @@ function validateTextInput(inputElement) {
 
   if (!regex.test(value)) {
     inputElement.classList.add('input-error');
-    showErrorMessage(inputElement, 'Lettres et espaces uniquement.');
+    showErrorMessage(inputElement, 'Lettres et espaces uniquement');
   } else {
     inputElement.classList.remove('input-error');
     hideErrorMessage(inputElement);
