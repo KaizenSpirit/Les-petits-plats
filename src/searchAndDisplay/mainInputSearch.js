@@ -2,13 +2,7 @@ import displayRecipes  from "../index.js";
 import fetchRecipes from '../api/api.js';
 import selectedOptions from './dropdownFilters.js';
 import updateDropdownOptions from "./updateDropdownOptions.js";
-// import updateDropdownOptions from './updateDropdownOptions.js';
-
-
-function getMainSearchValue() {
-  const searchInput = document.getElementById('searchInput');
-  return searchInput ? searchInput.value.toLowerCase() : '';
-}
+import { getMainSearchValue, getRandomSuggestions, displayNoRecipesMessage } from "./mainSearchUtils.js";
 
 export async function filterRecipes() {
   const recipes = await fetchRecipes();
@@ -35,6 +29,12 @@ export async function filterRecipes() {
   });
 
   displayRecipes(filteredRecipes);
+
+  if (filteredRecipes.length === 0) {
+    const suggestions = getRandomSuggestions(recipes);
+    displayNoRecipesMessage(mainSearchValue, suggestions);
+  }
+
   updateDropdownOptions(filteredRecipes)
 }
 

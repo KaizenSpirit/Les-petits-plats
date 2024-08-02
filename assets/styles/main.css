@@ -2,6 +2,7 @@
 @import url("mainSearch.css");
 @import url("dropdowns.css");
 @import url("containerRecipes.css");
+@import url("randomMessage.css");
 
 body {
   display: flex;
