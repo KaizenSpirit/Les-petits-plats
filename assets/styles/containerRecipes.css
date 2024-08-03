@@ -179,6 +179,18 @@
   color: grey;
 }
 
+.zero-recipes-title{
+  display: none;
+}
+
+.tags-container-title{
+  display: none;
+}
+
+.recipes-liste-title{
+  display: none;
+}
+
 @media (max-width: 767.98px) {
   .recipe-card {
     min-height: 751px;

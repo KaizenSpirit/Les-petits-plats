@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES.">
     <title>Les petits plats</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css" rel="stylesheet">
@@ -41,14 +42,15 @@
     
     <section class="dropdowns">
         <div class="dropdowns-container">
+            <h2 class="dropdowns-container-title">dropdowns</h2>
             <div class="dropdown m-4">
-                <button class="btn bg-white text-dark arrow btn-outline-light" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="btn bg-white text-dark arrow btn-outline-light" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     Ingrédients
                     <svg class="dropdownArrow" xmlns="http://www.w3.org/2000/svg" width="15" height="8" viewBox="0 0 15 8" fill="none">
                         <path d="M1 1L7.5 7L14 1" stroke="#1B1B1B" stroke-linecap="round" />
                     </svg>
                 </button>
-                <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton2">
+                <div class="dropdown-menu pt-0" aria-labelledby="dropdownMenuButton1">
                     <div class="search-container">
                         <input type="text" id="ingredients-search" class="form-control border-1 border-bottom shadow-none mb-2">
                         <svg id="search-close-ingredients" class="search-close-dropdown" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
@@ -109,13 +111,16 @@
     </section>
 
     <section class="message-zero-recipes">
+        <h2 class="zero-recipes-title">Zero recipes</h2>
         <!-- Message d'absence de recettes affiché ici dynamiquement -->
     </section>
     
     <section id="tags-container" class="tags-container">
+        <h2 class="tags-container-title">Tags container</h2>
         <!-- Tags d'options sélectionnées affichés ici dynamiquement -->
     </section>
     <section class="recipes-liste">
+        <h2 class="recipes-liste-title">Recipes list</h2>
         <div class="container">
         <!-- Cartes de recettes affichées ici dynamiquement -->
         </div>

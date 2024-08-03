@@ -27,6 +27,6 @@ export function getRandomSuggestions(recipes, count = 2) {
 export function displayNoRecipesMessage(searchValue, suggestions) {
   const messageContainer = document.querySelector('.message-zero-recipes');
   messageContainer.innerHTML = `
-    Aucune recette ne contient <span class="random-message"> '${searchValue}' </span>, vous pouvez chercher <span class="random-message">« ${suggestions.join(' », « ')} », ... </span>
+    <h4 class="random-message-title">Aucune recette ne contient <span class="random-message"> '${searchValue}' </span>, vous pouvez chercher <span class="random-message">« ${suggestions.join(' », « ')} », ... </span></h4>
   `;
 }

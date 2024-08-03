@@ -18,10 +18,10 @@ export class Recipe {
   renderCards() {
     return `
 <article class="recipe-card-container">
-        <figure class="recipe-card position-relative m-t-4">
-          <img src="./../assets/img/images/${this.image}" alt="${this.name}">
-          <span class="time-label position-absolute">${this.time}min</span>
-          <figcaption class="card-body">
+  <figure class="recipe-card position-relative m-t-4">
+    <img src="./../assets/img/images/${this.image}" alt="${this.name}">
+      <span class="time-label position-absolute">${this.time}min</span>
+        <figcaption class="card-body">
             <h3 class="card-title">${this.name}</h3>
             <section class="section-title-recette">
               <h4>RECETTE</h4>
@@ -29,23 +29,23 @@ export class Recipe {
             </section>
             <section class="section-title-ingredients">
               <h4>INGRÉDIENTS <span> (pour ${this.servings} portion${this.servings > 1 ? 's' : ""})</span></h4>
+                  <div class="ingredients">
+                    ${this.ingredients.map(ingredient => ingredient.generateIngredientRecipeCard()).join('')}
+                  </div>
             </section>
-            <div class="ingredients">
-              ${this.ingredients.map(ingredient => ingredient.generateIngredientRecipeCard()).join('')}
-            </div>
-          <section class="section-appliance-ustensils">
-          <section class="section-title-appliance">
+            <section class="section-appliance-ustensils">
+            <section class="section-title-appliance">
             <h4>APPAREILS</h4>  
             ${this.appliance.generateApplianceRecipeCard()}
-          </section>
-          <section class="section-title-ustensils">
-            <h4>USTENSILES</h4> 
-            ${this.ustensils.map(ustensile => ustensile.generateUstensileRecipeCard()).join('')}
-          </section>
+            </section>
+            <section class="section-title-ustensils">
+                <h4>USTENSILES</h4> 
+                ${this.ustensils.map(ustensile => ustensile.generateUstensileRecipeCard()).join('')}
+            </section>
           </section> 
-          </figcaption>
-        </figure>
-        </article>
+        </figcaption>
+  </figure>
+</article>
     `;
   }
 }

@@ -4,7 +4,9 @@
   justify-content: space-between;
   background-color: rgb(212, 209, 209);
 }
-
+.dropdowns-container-title{
+display: none;
+}
 .dropdown .btn {
   position: relative;
   width: 194px;
