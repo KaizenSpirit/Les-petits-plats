@@ -1,5 +1,5 @@
-import fetchRecipes from '../api/api.js';
-import { removeDuplicates, capitalize, populateDropdownOptions } from './dropdownsUtils.js';
+import fetchRecipes from '../../api/api.js';
+import { removeDuplicates, capitalize, fillDropdownOptions } from './dropdowns-utils.js';
 
 async function initializeDropdownOptions() {
   const recipes = await fetchRecipes();
@@ -26,9 +26,9 @@ async function initializeDropdownOptions() {
   const normalizedUstensils = allUstensils.filter(ustensil => typeof ustensil === 'string').map(capitalize);
   const uniqueUstensils = removeDuplicates(normalizedUstensils);
 
-  populateDropdownOptions('#ingredients-list', uniqueIngredients, 'ingredient');
-  populateDropdownOptions('#appliances-list', uniqueAppliances, 'appliance');
-  populateDropdownOptions('#ustensils-list', uniqueUstensils, 'ustensile');
+  fillDropdownOptions('#ingredients-list', uniqueIngredients, 'ingredient');
+  fillDropdownOptions('#appliances-list', uniqueAppliances, 'appliance');
+  fillDropdownOptions('#ustensils-list', uniqueUstensils, 'ustensile');
 
   return recipes;
 }

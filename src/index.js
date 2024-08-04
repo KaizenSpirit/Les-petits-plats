@@ -1,7 +1,7 @@
-import { addInputValidation, sanitizeInput } from './secureInputs/inputSanitizer.js';
-import performSearch  from './searchAndDisplay/mainInputSearch.js';
-import initializeDropdownOptions from './searchAndDisplay/dropdownsContent.js';
-import showDescription from './searchAndDisplay/showDescription.js';
+import { addInputValidation, sanitizeInput } from './secureInputs/inputs-sanitizer.js';
+import performSearch  from './search-and-display/main-search-input/main-input-search.js';
+import initializeDropdownOptions from './search-and-display/dropdowns/dropdowns-content.js';
+import showRecipeText from './search-and-display/main-search-input/show-recipe-text.js';
 
 
   function displayRecipes(recipes) {
@@ -19,7 +19,7 @@ import showDescription from './searchAndDisplay/showDescription.js';
   recipes.forEach(recipe => {
     recipesContainer.innerHTML += recipe.renderCards();
   });
-  showDescription()
+  showRecipeText()
 }
 
   async function init() {

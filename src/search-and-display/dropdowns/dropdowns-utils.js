@@ -1,6 +1,6 @@
-import CookFactory from '../dropdownsFactory/cookFactory.js';
-import addOptionEventListeners from './addCloseIcone.js';
-import selectedOptions from './dropdownFilters.js';
+import CookFactory from '../../dropdowns-factory/cook-factory.js';
+import addOptionEventListeners from './add-close-icon.js';
+import selectedOptions from './dropdown-filters.js';
 
 export function removeDuplicates(array) {
   return array.filter((item, index) => array.indexOf(item) === index);
@@ -10,7 +10,7 @@ export function capitalize(text) {
   return text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
 
-export function populateDropdownOptions(containerId, optionsList, type) {
+export function fillDropdownOptions(containerId, optionsList, type) {
   const container = document.querySelector(containerId);
   container.innerHTML = '';
   optionsList.forEach(option => {

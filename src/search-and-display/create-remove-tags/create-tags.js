@@ -1,8 +1,8 @@
-import { findCorrespondingOptionClickedToRemove } from "./removeTags.js";
-import Ingredient from "../models/ingredient.model.js";
-import Appliance from "../models/appliance.model.js";
-import Ustensile from "../models/ustensile.model.js";
-import removeTag from "./removeTags.js";
+import { findCorrespondingOptionClickedToRemove } from "./remove-tags.js";
+import Ingredient from "../../models/ingredient.model.js";
+import Appliance from "../../models/appliance.model.js";
+import Ustensile from "../../models/ustensile.model.js";
+import removeTag from "./remove-tags.js";
 
 function createTag(optionElement, type) {
   const tagsContainer = document.getElementById('tags-container');

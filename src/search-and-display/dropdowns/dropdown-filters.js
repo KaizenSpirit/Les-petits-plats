@@ -1,4 +1,4 @@
-import addOptionEventListeners from './addCloseIcone.js';
+import addOptionEventListeners from './add-close-icon.js';
 
 const selectedOptions = { 
   ingredient: [],

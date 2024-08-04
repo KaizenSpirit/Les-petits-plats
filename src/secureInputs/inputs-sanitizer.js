@@ -1,4 +1,3 @@
-// Fonction pour échapper les caractères HTML
 function escapeHTML(str) {
   return str.replace(/[&<>"'\/]/g, function(s) {
     const entityMap = {
@@ -13,16 +12,13 @@ function escapeHTML(str) {
   });
 }
 
-// Fonction pour valider et nettoyer les entrées de texte
 function sanitizeInput(input) {
   if (typeof input !== 'string') {
     return '';
   }
-  // Échapper les caractères HTML
   return escapeHTML(input.trim());
 }
 
-// Fonction pour valider les entrées de texte et afficher des erreurs
 function validateTextInput(inputElement) {
   const value = inputElement.value;
   const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿâêîôûÂÊÎÔÛ\s-]*$/;
@@ -37,7 +33,6 @@ function validateTextInput(inputElement) {
   }
 }
 
-// Fonction pour afficher un message d'erreur
 function showErrorMessage(inputElement, message) {
   let errorElement = inputElement.previousElementSibling;
   if (!errorElement || !errorElement.classList.contains('error-message')) {
@@ -48,7 +43,6 @@ function showErrorMessage(inputElement, message) {
   errorElement.textContent = message;
 }
 
-// Fonction pour masquer le message d'erreur
 function hideErrorMessage(inputElement) {
   const errorElement = inputElement.previousElementSibling;
   if (errorElement && errorElement.classList.contains('error-message')) {
@@ -56,13 +50,11 @@ function hideErrorMessage(inputElement) {
   }
 }
 
-// Ajouter un écouteur d'événements pour la validation des entrées
 function addInputValidation(inputElement) {
   inputElement.addEventListener('input', function(event) {
     validateTextInput(inputElement);
   });
 
-  // Gérer la touche espace explicitement
   inputElement.addEventListener('keydown', function(event) {
     if (event.key === ' ') {
       event.preventDefault();

@@ -1,5 +1,5 @@
-import selectedOptions from './dropdownFilters.js'
-import filterRecipes  from './mainInputSearch.js';
+import selectedOptions from '../dropdowns/dropdown-filters.js'
+import filterRecipes  from '../main-search-input/main-input-search.js';
 
 
 export function findCorrespondingOptionClickedToRemove(tagElement, type) {

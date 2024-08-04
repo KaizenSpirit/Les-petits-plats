@@ -1,7 +1,7 @@
-import createTag from "./createTags.js";
-import removeTag from "./removeTags.js";
-import selectedOptions from './dropdownFilters.js';
-import filterRecipes from './mainInputSearch.js'
+import createTag from "../create-remove-tags/create-tags.js";
+import removeTag from "../create-remove-tags/remove-tags.js";
+import selectedOptions from './dropdown-filters.js';
+import filterRecipes from '../main-search-input/main-input-search.js'
 
 function addOptionCloseEventListeners(optionElement, type) {
   optionElement.addEventListener('click', (e) => {

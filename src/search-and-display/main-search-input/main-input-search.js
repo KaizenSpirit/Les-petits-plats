@@ -1,8 +1,8 @@
-import displayRecipes  from "../index.js";
-import fetchRecipes from '../api/api.js';
-import selectedOptions from './dropdownFilters.js';
-import updateDropdownOptions from "./updateDropdownOptions.js";
-import { getMainSearchValue, getRandomSuggestions, displayNoRecipesMessage } from "./mainSearchUtils.js";
+import displayRecipes  from "../../index.js";
+import fetchRecipes from '../../api/api.js';
+import selectedOptions from '../dropdowns/dropdown-filters.js';
+import updateDropdownOptions from "../dropdowns/update-options.js";
+import { getMainSearchValue, getRandomSuggestions, displayNoRecipesMessage } from "./main-search-utils.js";
 
 export async function filterRecipes() {
   const recipes = await fetchRecipes();
