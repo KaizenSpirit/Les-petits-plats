@@ -1,8 +1,6 @@
-import fetchRecipes from '../../api/api.js';
 import { removeDuplicates, capitalize, fillDropdownOptions } from './dropdowns-utils.js';
 
-async function initializeDropdownOptions() {
-  const recipes = await fetchRecipes();
+async function initializeDropdownOptions(recipes) {
   const allIngredients = [];
   const allAppliances = [];
   const allUstensils = [];
@@ -29,8 +27,6 @@ async function initializeDropdownOptions() {
   fillDropdownOptions('#ingredients-list', uniqueIngredients, 'ingredient');
   fillDropdownOptions('#appliances-list', uniqueAppliances, 'appliance');
   fillDropdownOptions('#ustensils-list', uniqueUstensils, 'ustensile');
-
-  return recipes;
 }
 
 export default initializeDropdownOptions;

@@ -2,7 +2,7 @@ import { addInputValidation, sanitizeInput } from './secureInputs/inputs-sanitiz
 import performSearch  from './search-and-display/main-search-input/main-input-search.js';
 import initializeDropdownOptions from './search-and-display/dropdowns/dropdowns-content.js';
 import showRecipeText from './search-and-display/main-search-input/show-recipe-text.js';
-
+import fetchRecipes from './api/api.js';
 
   function displayRecipes(recipes) {
   const recipesContainer = document.querySelector('.recipes-liste .container');
@@ -23,10 +23,10 @@ import showRecipeText from './search-and-display/main-search-input/show-recipe-t
 }
 
   async function init() {
-  const recipes = await initializeDropdownOptions(); 
-  
+  const recipes = await fetchRecipes();
+  initializeDropdownOptions(recipes);
   displayRecipes(recipes); 
-
+  
   const searchInput = document.getElementById('searchInput');
   searchInput.addEventListener('input', (e) => {
     const sanitizedValue = sanitizeInput(e.target.value);
@@ -36,7 +36,6 @@ import showRecipeText from './search-and-display/main-search-input/show-recipe-t
 
   addInputValidation(searchInput);
   
-    // Ajouter la validation des entrées pour les dropdowns
     const ingredientInput = document.getElementById('ingredients-search');
     const applianceInput = document.getElementById('appliances-search');
     const ustensilInput = document.getElementById('ustensils-search');
