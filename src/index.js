@@ -1,7 +1,6 @@
 import { addInputValidation, sanitizeInput } from './secureInputs/inputs-sanitizer.js';
 import performSearch  from './search-and-display/main-search-input/main-input-search.js';
 import initializeDropdownOptions from './search-and-display/dropdowns/dropdowns-content.js';
-import showRecipeText from './search-and-display/main-search-input/show-recipe-text.js';
 import fetchRecipes from './api/api.js';
 
   function displayRecipes(recipes) {
@@ -19,7 +18,6 @@ import fetchRecipes from './api/api.js';
   recipes.forEach(recipe => {
     recipesContainer.innerHTML += recipe.renderCards();
   });
-  showRecipeText()
 }
 
   async function init() {

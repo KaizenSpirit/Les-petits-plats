@@ -33,7 +33,8 @@ export function displayNoRecipesMessage(searchValue, suggestions, selectedTags) 
     `;
   } else {
     messageContainer.innerHTML = `
-      <h4 class="random-message-title">Aucune recette ne contient <span class="random-message"> '${searchValue}' </span>, vous pouvez chercher <span class="random-message">« ${suggestions.join(' », « ')} », ... </span></h4>
+      <h4 class="random-message-title">Aucune recette ne contient <span class="random-message"> '${searchValue}' </span>, vous pouvez chercher «
+tarte aux pommes », « poisson », etc.</span></h4>
     `;
   }
 }
