@@ -98,6 +98,9 @@
     width: 20px;
     height: 25px;
   }
+  .search-bar svg#search-close {
+    margin-right: 55px;
+  }
 }
 
 @media (max-width: 480px) {

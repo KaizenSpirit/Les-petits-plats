@@ -228,4 +228,7 @@ border-radius: 0 0 5px 5px;
      .search-container{
      width: 90%;
      }
+     .search-container .search-close-dropdown {
+      right: 90px;
+  }
   }

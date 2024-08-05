@@ -9,7 +9,7 @@ import fetchRecipes from './api/api.js';
   const recipeCountElement = document.getElementById('recipeCount');
   const messageContainer = document.querySelector('.message-zero-recipes');
 
-  recipeCountElement.textContent = `${recipes.length} recettes`;
+  recipeCountElement.textContent = `${recipes.length} recette${recipes.length > 1 ? 's' : ""}`;
   recipesContainer.innerHTML = '';
 
   if (recipes.length > 0) {
