@@ -1,28 +1,37 @@
+import CookFactory from '../../dropdowns-factory/cook-factory.js';
 import { removeDuplicates, capitalize, fillDropdownOptions } from './dropdowns-utils.js';
 
-async function initializeDropdownOptions(recipes) {
-  const allIngredients = [];
-  const allAppliances = [];
-  const allUstensils = [];
+function initializeDropdownOptions(recipes) {
+  const allItems = {
+    ingredient: [],
+    appliance: [],
+    ustensile: []
+  };
 
   recipes.forEach(recipe => {
     recipe.ingredients.forEach(ing => {
-      allIngredients.push(ing.ingredient);
+      const ingredient = new CookFactory(ing.ingredient, 'ingredient');
+      allItems.ingredient.push(ingredient.ingredient);
     });
-    allAppliances.push(recipe.appliance.appliance);
+
+    const appliance = new CookFactory(recipe.appliance.appliance, 'appliance');
+    if (appliance.appliance && typeof appliance.appliance === 'string') {
+      allItems.appliance.push(appliance.appliance);
+    }
+
     recipe.ustensils.forEach(ust => {
-      if (typeof ust === 'object' && ust.hasOwnProperty('ustensile')) {
-        allUstensils.push(ust.ustensile); 
+      const ustensil = new CookFactory(ust, 'ustensile');
+      if (Array.isArray(ustensil) && ustensil.length > 0 && typeof ustensil[0].ustensile === 'string') {
+        allItems.ustensile.push(ustensil[0].ustensile);
       } else if (typeof ust === 'string') {
-        allUstensils.push(ust); 
+        allItems.ustensile.push(ust);
       }
     });
   });
 
-  const uniqueIngredients = removeDuplicates(allIngredients.map(capitalize));
-  const uniqueAppliances = removeDuplicates(allAppliances.map(capitalize));
-  const normalizedUstensils = allUstensils.filter(ustensil => typeof ustensil === 'string').map(capitalize);
-  const uniqueUstensils = removeDuplicates(normalizedUstensils);
+  const uniqueIngredients = removeDuplicates(allItems.ingredient.map(item => capitalize(String(item))));
+  const uniqueAppliances = removeDuplicates(allItems.appliance.map(item => capitalize(String(item))));
+  const uniqueUstensils = removeDuplicates(allItems.ustensile.map(item => capitalize(String(item))));
 
   fillDropdownOptions('#ingredients-list', uniqueIngredients, 'ingredient');
   fillDropdownOptions('#appliances-list', uniqueAppliances, 'appliance');

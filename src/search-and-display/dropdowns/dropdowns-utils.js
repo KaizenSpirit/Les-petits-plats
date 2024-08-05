@@ -7,6 +7,9 @@ export function removeDuplicates(array) {
 }
 
 export function capitalize(text) {
+  if (typeof text !== 'string') {
+    return text;
+  }
   return text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
 
