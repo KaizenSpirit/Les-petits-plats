@@ -8,6 +8,12 @@ export async function filterRecipes() {
   const recipes = await fetchRecipes();
   const mainSearchValue = getMainSearchValue();
 
+  const selectedTags = [
+    ...selectedOptions.ingredient,
+    ...selectedOptions.appliance,
+    ...selectedOptions.ustensile
+  ];
+
   const filteredRecipes = recipes.filter(recipe => {
     const ingredientsMatch = selectedOptions.ingredient.every(ing =>
       recipe.ingredients.some(recipeIng => recipeIng.ingredient.toLowerCase() === ing.toLowerCase())
@@ -31,8 +37,8 @@ export async function filterRecipes() {
   displayRecipes(filteredRecipes);
 
   if (filteredRecipes.length === 0) {
-    const suggestions = getRandomSuggestions(recipes);
-    displayNoRecipesMessage(mainSearchValue, suggestions);
+    const suggestions = getRandomSuggestions(recipes, 2);
+    displayNoRecipesMessage(mainSearchValue, suggestions, selectedTags);
   }
 
   updateDropdownOptions(filteredRecipes)
