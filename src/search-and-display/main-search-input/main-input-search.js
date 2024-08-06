@@ -1,7 +1,7 @@
 import displayRecipes  from "../../index.js";
 import fetchRecipes from '../../api/api.js';
 import selectedOptions from '../dropdowns/dropdown-filters.js';
-import { getMainSearchValue, displayNoRecipesMessage } from "./main-search-utils.js";
+import { getMainSearchValue, displayNoRecipesMessage } from "./no-recipes-message.js";
 import initializeDropdownOptions from "../dropdowns/dropdowns-content.js";
 
 export async function filterRecipes() {
