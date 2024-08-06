@@ -5,16 +5,27 @@
   font-size: 25px;
   background-color: rgb(212, 209, 209);
   font-weight: 400;
+  max-width: 1440px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 40px;
 }
 .random-message{
   font-size: 30px;
   color: black;
   font-family: "Manrope", sans-serif;
   font: 800;
-  background-color: #FFD15B;
   border-radius: 15px;
   padding: 0px 10px;
+  line-height: 60px;
 }
+
+.random-message-search-value{
+  background-color: #FFD15B;
+  border-radius: 10px;
+  padding: 5px;
+}
+
 
 .random-message-title{
   max-width: 1390px;

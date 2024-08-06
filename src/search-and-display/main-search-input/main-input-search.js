@@ -1,7 +1,7 @@
 import displayRecipes  from "../../index.js";
 import fetchRecipes from '../../api/api.js';
 import selectedOptions from '../dropdowns/dropdown-filters.js';
-import { getMainSearchValue, getRandomSuggestions, displayNoRecipesMessage } from "./main-search-utils.js";
+import { getMainSearchValue, displayNoRecipesMessage } from "./main-search-utils.js";
 import initializeDropdownOptions from "../dropdowns/dropdowns-content.js";
 
 export async function filterRecipes() {
@@ -37,8 +37,7 @@ export async function filterRecipes() {
   displayRecipes(filteredRecipes);
 
   if (filteredRecipes.length === 0) {
-    const suggestions = getRandomSuggestions(recipes, 2);
-    displayNoRecipesMessage(mainSearchValue, suggestions, selectedTags);
+    displayNoRecipesMessage(mainSearchValue, selectedTags);
   }
 
   initializeDropdownOptions(filteredRecipes)

@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   background-color: rgb(212, 209, 209);
+  max-width: 1440px;
 }
 .dropdowns-container-title{
 display: none;
