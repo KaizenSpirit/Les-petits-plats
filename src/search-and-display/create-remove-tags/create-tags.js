@@ -1,4 +1,3 @@
-import { findCorrespondingOptionClickedToRemove } from "./remove-tags.js";
 import Ingredient from "../../models/ingredient.model.js";
 import Appliance from "../../models/appliance.model.js";
 import Ustensile from "../../models/ustensile.model.js";
@@ -28,11 +27,6 @@ function createTag(optionElement, type) {
     e.stopPropagation();
     if (e.target.classList.contains('close-icon')) {
       removeTag(tagElement, type);
-      const correspondingOption = findCorrespondingOptionClickedToRemove(tagElement, type);
-      if (correspondingOption) {
-        correspondingOption.classList.remove('selected');
-        correspondingOption.querySelector('.close-icon').style.display = 'none';
-      }
     }
   });
 }

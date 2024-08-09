@@ -1,5 +1,5 @@
 import CookFactory from '../../dropdowns-factory/cook-factory.js';
-import addOptionEventListeners from './add-close-icon.js';
+import addOptionCloseEventListeners from './add-close-icon.js';
 import selectedOptions from './dropdown-filters.js';
 
 export function removeDuplicates(array) {
@@ -32,7 +32,7 @@ export function fillDropdownOptions(containerId, optionsList, type) {
     optionElement.classList.add('dropdown-option');
     optionElement.innerHTML = htmlContent;
 
-    addOptionEventListeners(optionElement, type);
+    addOptionCloseEventListeners(optionElement, type);
     container.appendChild(optionElement);
   });
 

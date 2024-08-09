@@ -21,10 +21,8 @@ function initializeDropdownOptions(recipes) {
 
     recipe.ustensils.forEach(ust => {
       const ustensil = new CookFactory(ust, 'ustensile');
-      if (Array.isArray(ustensil) && ustensil.length > 0 && typeof ustensil[0].ustensile === 'string') {
+      if (typeof ustensil[0].ustensile === 'string') {
         allItems.ustensile.push(ustensil[0].ustensile);
-      } else if (typeof ust === 'string') {
-        allItems.ustensile.push(ust);
       }
     });
   });

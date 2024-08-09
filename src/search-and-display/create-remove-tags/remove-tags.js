@@ -1,7 +1,6 @@
 import selectedOptions from '../dropdowns/dropdown-filters.js'
 import filterRecipes  from '../main-search-input/main-input-search.js';
 
-
 export function findCorrespondingOptionClickedToRemove(tagElement, type) {
   const optionLists = {
     'ingredient': '#ingredients-list',

@@ -8,7 +8,7 @@ export function displayNoRecipesMessage(searchValue, selectedTags) {
   if (selectedTags.length > 0) {
     let tagsMessage = ` à la fois "<span class="random-message">${selectedTags.join('", "')} </span>" et votre dernière recherche :`;
     messageContainer.innerHTML = `
-      <h4> Aucune recette ne contient ${tagsMessage} '<span class="random-message-search-value">${searchValue} .</span>' </h4>
+      <h4> Aucune recette ne contient ${tagsMessage} '<span class="random-message-search-value">${searchValue} </span>'. </h4>
     `;
   } else {
     messageContainer.innerHTML = `

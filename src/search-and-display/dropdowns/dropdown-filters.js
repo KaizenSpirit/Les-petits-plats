@@ -1,4 +1,4 @@
-import addOptionEventListeners from './add-close-icon.js';
+import addOptionCloseEventListeners from './add-close-icon.js';
 
 const selectedOptions = { 
   ingredient: [],
@@ -37,7 +37,7 @@ function filterDropdownOptions(inputElement, listElement, type) {
       }else{
         option.style.display = 'none';
       }
-      addOptionEventListeners(option, type);
+      addOptionCloseEventListeners(option, type);
     });
   });
 }
