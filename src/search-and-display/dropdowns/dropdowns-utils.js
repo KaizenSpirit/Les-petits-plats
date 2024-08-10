@@ -16,6 +16,7 @@ export function capitalize(text) {
 export function fillDropdownOptions(containerId, optionsList, type) {
   const container = document.querySelector(containerId);
   container.innerHTML = '';
+
   optionsList.forEach(option => {
     let htmlContent = '';
     const factoryInstance = new CookFactory(option, type);
@@ -32,20 +33,16 @@ export function fillDropdownOptions(containerId, optionsList, type) {
     optionElement.classList.add('dropdown-option');
     optionElement.innerHTML = htmlContent;
 
-    addOptionCloseEventListeners(optionElement, type);
     container.appendChild(optionElement);
-  });
 
-  optionsList.forEach(option => {
-    Array.from(container.children).forEach(optionElement => {
-      const optionText = optionElement.textContent.trim();
-      if (optionText === option && selectedOptions[type].includes(option)) {
-        optionElement.classList.add('selected');
-        const closeIcon = optionElement.querySelector('.close-icon');
-        if (closeIcon) {
-          closeIcon.style.display = 'block';
-        }
+    if (selectedOptions[type].includes(option)) {
+      optionElement.classList.add('selected');
+      const closeIcon = optionElement.querySelector('.close-icon');
+      if (closeIcon) {
+        closeIcon.style.display = 'block';
       }
-    });
+    }
+
+    addOptionCloseEventListeners(optionElement, type);
   });
 }
