@@ -13,31 +13,15 @@ function filterDropdownOptions(inputElement, listElement, type) {
 
     options.forEach(option => {
       const optionText = option.textContent.trim();
-      const closeIcon = option.querySelector('.close-icon');
       const isSelected = selectedOptions[type].includes(optionText);
       const text = option.textContent.toLowerCase();
+      const shouldShowOption = text.includes(filter) || filter === '';
+      option.style.display = shouldShowOption ? '' : 'none';
 
-      if (text.includes(filter)) {
-        option.style.display = '';
+    if (shouldShowOption) {
         option.classList.toggle('selected', isSelected);
-        if (closeIcon) {
-          closeIcon.style.display = isSelected ? 'block' : 'none';
-        }
-      } else if (filter === ''){
-        option.classList.remove('selected');
-        if (closeIcon) {
-          closeIcon.style.display = 'none';
-        }
-        if (isSelected) {
-          option.classList.add('selected');
-          if (closeIcon) {
-            closeIcon.style.display = 'block';
-          }
-        }
-      }else{
-        option.style.display = 'none';
+        addOptionCloseEventListeners(option, type); 
       }
-      addOptionCloseEventListeners(option, type);
     });
   });
 }

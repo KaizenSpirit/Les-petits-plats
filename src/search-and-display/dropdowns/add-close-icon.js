@@ -10,29 +10,23 @@ function addOptionCloseEventListeners(optionElement, type) {
 
     const closeIcon = optionElement.querySelector('.close-icon');
     const optionText = optionElement.textContent.trim();
-    if (e.target.classList.contains('close-icon')) {
+    const isSelected = selectedOptions[type].includes(optionText);
+    const isCloseIconClicked = e.target.classList.contains('close-icon');
+    
+    if (isCloseIconClicked && isSelected) {
+      // User clicked on the close icon to remove the tag
       removeTag(optionElement, type);
       optionElement.classList.remove('selected');
-      if (closeIcon) {
-        closeIcon.style.display = 'none';
-      }
-      const index = selectedOptions[type].indexOf(optionText);
-      if (index !== -1) {
-        selectedOptions[type].splice(index, 1);
-      }
-    } else {
-      if (!optionElement.classList.contains('selected')) {
-        optionElement.classList.add('selected');
-        if (closeIcon) {
-          closeIcon.style.display = 'block';
-        }
-        createTag(optionElement, type);
-        if (!selectedOptions[type].includes(optionText)) {
-          selectedOptions[type].push(optionText);
-        }
-      }
-      filterRecipes()
+      closeIcon.style.display = 'none';
+      selectedOptions[type] = selectedOptions[type].filter(item => item !== optionText);
+    } else if (!isSelected) {
+      // User clicked on the option to select it
+      optionElement.classList.add('selected');
+      closeIcon.style.display = 'block';
+      createTag(optionElement, type);
+      selectedOptions[type].push(optionText);
     }
+      filterRecipes()
   });
 }
 
