@@ -197,6 +197,9 @@ border-radius: 0 0 5px 5px;
       margin: 50px auto;
       font-size: 33px;
     }
+    .tags-container {
+      padding-left: auto;
+     }
   }
 
   @media (max-width: 750px) {
@@ -232,4 +235,16 @@ border-radius: 0 0 5px 5px;
      .search-container .search-close-dropdown {
       right: 90px;
   }
+  }
+
+
+  @media (max-width: 710px) {
+    .tags-container {
+    flex-direction: column;
+    max-width: 710px;
+}
+    .tags-container div .custom-tag {
+      max-width: 60%;
+      margin: 10px auto;
+      }
   }
