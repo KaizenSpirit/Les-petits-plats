@@ -24,7 +24,7 @@ function validateTextInput(inputElement) {
 
   if (!regex.test(value)) {
     inputElement.classList.add('input-error');
-    showErrorMessage(inputElement, 'Lettres, espaces, guillemets et barres obliques uniquement');
+    showErrorMessage(inputElement, 'Lettres, espaces, guillemets et apostrophes uniquement');
   } else {
     inputElement.classList.remove('input-error');
     hideErrorMessage(inputElement);

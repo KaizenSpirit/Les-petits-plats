@@ -1,10 +1,6 @@
 import CookFactory from '../../dropdowns-factory/cook-factory.js';
-import addOptionCloseEventListeners from './add-close-icon.js';
-import selectedOptions from './dropdown-filters.js';
-
-export function removeDuplicates(array) {
-  return array.filter((item, index) => array.indexOf(item) === index);
-}
+import addOptionCloseButton from './add-close-icon.js';
+import userSelectedDropdownsOptions from './dropdown-filters.js';
 
 export function capitalize(text) {
   if (typeof text !== 'string') {
@@ -29,20 +25,20 @@ export function fillDropdownOptions(containerId, optionsList, type) {
       });
     }
 
-    const optionElement = document.createElement('div');
-    optionElement.classList.add('dropdown-option');
-    optionElement.innerHTML = htmlContent;
+    const dropdownOption = document.createElement('div');
+    dropdownOption.classList.add('dropdown-option');
+    dropdownOption.innerHTML = htmlContent;
 
-    container.appendChild(optionElement);
+    container.appendChild(dropdownOption);
 
-    if (selectedOptions[type].includes(option)) {
-      optionElement.classList.add('selected');
-      const closeIcon = optionElement.querySelector('.close-icon');
+    if (userSelectedDropdownsOptions[type].includes(option)) {
+      dropdownOption.classList.add('selected');
+      const closeIcon = dropdownOption.querySelector('.close-icon');
       if (closeIcon) {
         closeIcon.style.display = 'block';
       }
     }
 
-    addOptionCloseEventListeners(optionElement, type);
+    addOptionCloseButton(dropdownOption, type);
   });
 }

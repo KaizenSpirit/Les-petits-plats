@@ -1,39 +1,35 @@
 import CookFactory from '../../dropdowns-factory/cook-factory.js';
-import { removeDuplicates, capitalize, fillDropdownOptions } from './dropdowns-utils.js';
+import { capitalize, fillDropdownOptions } from './dropdowns-utils.js';
 
 function initializeDropdownOptions(recipes) {
   const allItems = {
-    ingredient: [],
-    appliance: [],
-    ustensile: []
+    ingredient: new Set(),
+    appliance: new Set(),
+    ustensile: new Set()
   };
 
   recipes.forEach(recipe => {
     recipe.ingredients.forEach(ing => {
       const ingredient = new CookFactory(ing.ingredient, 'ingredient');
-      allItems.ingredient.push(ingredient.ingredient);
+      allItems.ingredient.add(capitalize(String(ingredient.ingredient)));
     });
 
     const appliance = new CookFactory(recipe.appliance.appliance, 'appliance');
     if (appliance.appliance && typeof appliance.appliance === 'string') {
-      allItems.appliance.push(appliance.appliance);
+      allItems.appliance.add(capitalize(String(appliance.appliance)));
     }
 
     recipe.ustensils.forEach(ust => {
       const ustensil = new CookFactory(ust, 'ustensile');
       if (typeof ustensil[0].ustensile === 'string') {
-        allItems.ustensile.push(ustensil[0].ustensile);
+        allItems.ustensile.add(capitalize(String(ustensil[0].ustensile)));
       }
     });
   });
 
-  const uniqueIngredients = removeDuplicates(allItems.ingredient.map(item => capitalize(String(item))));
-  const uniqueAppliances = removeDuplicates(allItems.appliance.map(item => capitalize(String(item))));
-  const uniqueUstensils = removeDuplicates(allItems.ustensile.map(item => capitalize(String(item))));
-
-  fillDropdownOptions('#ingredients-list', uniqueIngredients, 'ingredient');
-  fillDropdownOptions('#appliances-list', uniqueAppliances, 'appliance');
-  fillDropdownOptions('#ustensils-list', uniqueUstensils, 'ustensile');
+  fillDropdownOptions('#ingredients-list', Array.from(allItems.ingredient), 'ingredient');
+  fillDropdownOptions('#appliances-list', Array.from(allItems.appliance), 'appliance');
+  fillDropdownOptions('#ustensils-list', Array.from(allItems.ustensile), 'ustensile');
 }
 
 export default initializeDropdownOptions;

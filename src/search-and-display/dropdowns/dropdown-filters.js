@@ -1,27 +1,14 @@
-import addOptionCloseEventListeners from './add-close-icon.js';
-
-const selectedOptions = { 
+const userSelectedDropdownsOptions = { 
   ingredient: [],
   appliance: [],
   ustensile: []
 };
 
-function filterDropdownOptions(inputElement, listElement, type) {
-  inputElement.addEventListener('input', function() {
-    const filter = inputElement.value.toLowerCase();
-    const options = Array.from(listElement.querySelectorAll('.dropdown-option'));
-
-    options.forEach(option => {
-      const optionText = option.textContent.trim();
-      const isSelected = selectedOptions[type].includes(optionText);
-      const text = option.textContent.toLowerCase();
-      const shouldShowOption = text.includes(filter) || filter === '';
+function filterDropdownOptions(inputFilterSearch, dropdownOptions) {
+  inputFilterSearch.addEventListener('input', function() {
+    Array.from(dropdownOptions.querySelectorAll('.dropdown-option')).forEach(option => {
+      const shouldShowOption = option.textContent.toLowerCase().includes(inputFilterSearch.value.toLowerCase()) || inputFilterSearch.value === '';
       option.style.display = shouldShowOption ? '' : 'none';
-
-    if (shouldShowOption) {
-        option.classList.toggle('selected', isSelected);
-        addOptionCloseEventListeners(option, type); 
-      }
     });
   });
 }
@@ -34,15 +21,12 @@ function initDropdownFilters() {
   ];
 
   dropdowns.forEach(({ input, list, type }) => {
-    const inputElement = document.querySelector(input);
-    const listElement = document.querySelector(list);
-
-    if (inputElement && listElement) {
-      filterDropdownOptions(inputElement, listElement, type);
+    if (document.querySelector(input) && document.querySelector(list)) {
+      filterDropdownOptions(document.querySelector(input), document.querySelector(list));
     }
   });
 }
 
 initDropdownFilters();
 
-export default selectedOptions;
+export default userSelectedDropdownsOptions;

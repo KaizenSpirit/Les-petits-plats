@@ -110,11 +110,11 @@
   justify-content: auto;
 }
 
-.recipe-card .section-title-recette:hover p {
+/* .recipe-card .section-title-recette:hover p {
   -webkit-line-clamp: unset; 
   display: block; 
   transition: -webkit-line-clamp 0.3s ease; 
-}
+} */
 
 
 .section-appliance-ustensils{

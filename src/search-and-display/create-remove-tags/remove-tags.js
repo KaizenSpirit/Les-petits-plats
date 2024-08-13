@@ -1,4 +1,4 @@
-import selectedOptions from '../dropdowns/dropdown-filters.js'
+import userSelectedDropdownsOptions from '../dropdowns/dropdown-filters.js'
 import filterRecipes  from '../main-search-input/main-input-search.js';
 
 export function findCorrespondingOptionClickedToRemove(tagElement, type) {
@@ -13,23 +13,19 @@ export function findCorrespondingOptionClickedToRemove(tagElement, type) {
 }
 
 function removeTag(tagElement, type) {
-  const tagsContainer = document.getElementById('tags-container');
-  const tag = Array.from(tagsContainer.children).find(tag => tag.textContent.trim() === tagElement.textContent.trim());
+  const tag = Array.from(document.getElementById('tags-container').children).find(tag => tag.textContent.trim() === tagElement.textContent.trim());
   if (tag) {
     const correspondingOption = findCorrespondingOptionClickedToRemove(tag, type);
     if (correspondingOption) {
       correspondingOption.classList.remove('selected');
-      const closeIcon = correspondingOption.querySelector('.close-icon');
-      if (closeIcon) {
-        closeIcon.style.display = 'none';
+      if (correspondingOption.querySelector('.close-icon')){
+        correspondingOption.querySelector('.close-icon').style.display = 'none'
       }
     }
-    const optionText = tag.textContent.trim();
-    const index = selectedOptions[type].indexOf(optionText);
-    if (index !== -1) {
-      selectedOptions[type].splice(index, 1);
-    }
-    tagsContainer.removeChild(tag);
+  ;
+  userSelectedDropdownsOptions[type] = userSelectedDropdownsOptions[type].filter(item => item !== tag.textContent.trim());
+
+    document.getElementById('tags-container').removeChild(tag);
     filterRecipes()
   }
 }
