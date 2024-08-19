@@ -1,8 +1,5 @@
-const searchInputs = document.querySelectorAll('.search-bar input, .search-container input');
-const searchCloses = document.querySelectorAll('.search-bar #search-close, .search-container .search-close-dropdown');
-
-searchInputs.forEach((input, index) => {
-    const closeIcon = searchCloses[index];
+document.querySelectorAll('.search-bar input, .search-container input').forEach((input, index) => {
+    const closeIcon = document.querySelectorAll('.search-bar #search-close, .search-container .search-close-dropdown')[index];
 
     input.addEventListener('input', () => {
         if (input.value.length > 0) {

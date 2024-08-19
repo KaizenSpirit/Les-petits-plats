@@ -4,17 +4,14 @@ import initializeDropdownOptions from './search-and-display/dropdowns/dropdowns-
 import fetchRecipes from './api/api.js';
 
   function displayRecipes(recipes) {
-  const recipesContainer = document.querySelector('.recipes-liste .container');
-  const recipeCountElement = document.getElementById('recipeCount');
-  const messageContainer = document.querySelector('.message-zero-recipes');
-
-  recipeCountElement.textContent = `${recipes.length} recette${recipes.length > 1 ? 's' : ""}`;
-  recipesContainer.innerHTML = '';
+    document.getElementById('recipeCount').textContent = `${recipes.length} recette${recipes.length > 1 ? 's' : ""}`;
 
   if (recipes.length > 0) {
-    messageContainer.innerHTML = ''; 
+    document.querySelector('.message-zero-recipes').innerHTML = ''; 
   }
 
+  const recipesContainer = document.querySelector('.recipes-liste .container');
+  recipesContainer.innerHTML = '';
   recipes.forEach(recipe => {
     recipesContainer.innerHTML += recipe.renderCards();
   });
@@ -26,21 +23,15 @@ import fetchRecipes from './api/api.js';
   displayRecipes(recipes); 
   
   const searchInput = document.getElementById('searchInput');
+
   searchInput.addEventListener('input', (e) => {
-    const sanitizedValue = sanitizeInput(e.target.value);
-    e.target.value = sanitizedValue;
+    e.target.value = sanitizeInput(e.target.value);
     performSearch(e, recipes);
   });
-
-  addInputValidation(searchInput);
-  
-    const ingredientInput = document.getElementById('ingredients-search');
-    const applianceInput = document.getElementById('appliances-search');
-    const ustensilInput = document.getElementById('ustensils-search');
-  
-    addInputValidation(ingredientInput);
-    addInputValidation(applianceInput);
-    addInputValidation(ustensilInput);
+    addInputValidation(searchInput);
+    addInputValidation(document.getElementById('ingredients-search'));
+    addInputValidation(document.getElementById('appliances-search'));
+    addInputValidation(document.getElementById('ustensils-search'));
 }
 
 init();
