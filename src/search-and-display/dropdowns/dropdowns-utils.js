@@ -2,7 +2,7 @@ import CookFactory from '../../dropdowns-factory/cook-factory.js';
 import addOptionCloseButton from './add-close-icon.js';
 import userSelectedDropdownsOptions from './dropdown-filters.js';
 
-export function capitalize(text) {
+export function capitalizeDropdownsOptionsFirstLetter(text) {
   if (typeof text !== 'string') {
     return text;
   }

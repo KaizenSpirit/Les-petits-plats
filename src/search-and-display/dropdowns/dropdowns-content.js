@@ -1,5 +1,5 @@
 import CookFactory from '../../dropdowns-factory/cook-factory.js';
-import { capitalize, fillDropdownOptions } from './dropdowns-utils.js';
+import { capitalizeDropdownsOptionsFirstLetter, fillDropdownOptions } from './dropdowns-utils.js';
 
 function initializeDropdownOptions(recipes) {
   const allItems = {
@@ -11,18 +11,18 @@ function initializeDropdownOptions(recipes) {
   recipes.forEach(recipe => {
     recipe.ingredients.forEach(ing => {
       const ingredient = new CookFactory(ing.ingredient, 'ingredient');
-      allItems.ingredient.add(capitalize(String(ingredient.ingredient)));
+      allItems.ingredient.add(capitalizeDropdownsOptionsFirstLetter(String(ingredient.ingredient)));
     });
 
     const appliance = new CookFactory(recipe.appliance.appliance, 'appliance');
     if (appliance.appliance && typeof appliance.appliance === 'string') {
-      allItems.appliance.add(capitalize(String(appliance.appliance)));
+      allItems.appliance.add(capitalizeDropdownsOptionsFirstLetter(String(appliance.appliance)));
     }
 
     recipe.ustensils.forEach(ust => {
       const ustensil = new CookFactory(ust, 'ustensile');
       if (typeof ustensil[0].ustensile === 'string') {
-        allItems.ustensile.add(capitalize(String(ustensil[0].ustensile)));
+        allItems.ustensile.add(capitalizeDropdownsOptionsFirstLetter(String(ustensil[0].ustensile)));
       }
     });
   });
