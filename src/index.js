@@ -1,6 +1,6 @@
 import { addInputValidation, sanitizeInput } from './secureInputs/inputs-sanitizer.js';
 import performSearch  from './search-and-display/main-search-input/main-input-search.js';
-import initializeDropdownOptions from './search-and-display/dropdowns/dropdowns-content.js';
+import initializeDropdownOptions from './search-and-display/dropdowns/dropdowns-creation.js';
 import fetchRecipes from './api/api.js';
 
   function displayRecipes(recipes) {

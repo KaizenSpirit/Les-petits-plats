@@ -141,6 +141,12 @@ border-radius: 0 0 5px 5px;
   .selected .close-icon {
     display: block;
   }
+
+  .selected .dropdown-option .appliance-name-dropdown,
+  .selected .dropdown-option .ingredient-name-dropdown,
+  .selected .dropdown-option .ustensile-name-dropdown {
+      font-weight: bold;
+  }
   
   .tags-container {
     display: flex;
@@ -168,7 +174,7 @@ border-radius: 0 0 5px 5px;
   .custom-tag .ingredient-name-tag,
   .custom-tag .appliance-name-tag {
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 500;
     color: #1B1B1B;
   }
   

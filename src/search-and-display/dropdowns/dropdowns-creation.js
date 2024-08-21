@@ -2,14 +2,45 @@ import CookFactory from '../../dropdowns-factory/cook-factory.js';
 import addOptionCloseButton from './add-close-icon.js';
 import userSelectedDropdownsOptions from './dropdown-filters.js';
 
-export function capitalizeFirstLetter(text) {
+function capitalizeFistLetter(text) {
   if (typeof text !== 'string') {
     return text;
   }
   return text.toLowerCase().charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
 
-export function fillDropdownOptions(containerId, optionsList, type) {
+function initializeDropdownOptions(recipes) {
+  const allItems = {
+    ingredient: new Set(),
+    appliance: new Set(),
+    ustensile: new Set()
+  };
+
+  recipes.forEach(recipe => {
+    recipe.ingredients.forEach(ing => {
+      const ingredient = new CookFactory(ing.ingredient, 'ingredient');
+      allItems.ingredient.add(capitalizeFistLetter(String(ingredient.ingredient)));
+    });
+
+    const appliance = new CookFactory(recipe.appliance.appliance, 'appliance');
+    if (appliance.appliance && typeof appliance.appliance === 'string') {
+      allItems.appliance.add(capitalizeFistLetter(String(appliance.appliance)));
+    }
+
+    recipe.ustensils.forEach(ust => {
+      const ustensil = new CookFactory(ust, 'ustensile');
+      if (typeof ustensil[0].ustensile === 'string') {
+        allItems.ustensile.add(capitalizeFistLetter(String(ustensil[0].ustensile)));
+      }
+    });
+  });
+
+  fillDropdownOptions('#ingredients-list', Array.from(allItems.ingredient), 'ingredient');
+  fillDropdownOptions('#appliances-list', Array.from(allItems.appliance), 'appliance');
+  fillDropdownOptions('#ustensils-list', Array.from(allItems.ustensile), 'ustensile');
+}
+
+function fillDropdownOptions(containerId, optionsList, type) {
   const container = document.querySelector(containerId);
   container.innerHTML = '';
 
@@ -42,3 +73,6 @@ export function fillDropdownOptions(containerId, optionsList, type) {
     addOptionCloseButton(dropdownOption, type);
   });
 }
+
+
+export default initializeDropdownOptions;
