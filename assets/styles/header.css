@@ -36,3 +36,34 @@ header{
   width: 90%;
   max-width: 55%;
 }
+
+@media (max-width: 738px) {
+  .header .search {
+    height: 25rem;
+  }
+  .header h2 {
+    font-size: 1.2rem;
+    max-width: 60%; 
+    margin: 30px 5% 0 0;
+  }
+  .header-logo {
+    margin-left: -5%;
+    width: 150px; 
+  }
+}
+@media (max-width: 400px) {
+  .header .search {
+    height: 20rem;
+  }
+
+  .header h2 {
+    font-size: 1rem;
+    max-width: 90%;
+    margin: 30px 5% 0 0;
+  }
+
+  .header-logo {
+    width: 120px;
+    left: 50px;
+  }
+}

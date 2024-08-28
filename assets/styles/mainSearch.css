@@ -77,10 +77,9 @@
   cursor: pointer;
   display: none; /* Masquer par défaut */
 }
-
 @media (max-width: 768px) {
   .search-bar {
-    max-width: 50%;
+    max-width: 60%; /* Augmente la largeur de l'input principal à 60% */
     height: 60px;
     padding-left: 20px;
   }
@@ -103,23 +102,28 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .search-bar {
-    height: 50px;
+    max-width: 80%; /* Assure que l'input principal soit plus large sur les petits écrans */
+    height: 55px;
     padding-left: 15px;
   }
 
   .search-bar input {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .search-bar button {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
   }
 
   .search-bar button svg {
-    width: 18px;
-    height: 22px;
+    width: 20px;
+    height: 25px;
+  }
+  .search-bar svg#search-close {
+    margin-right: 50px;
   }
 }
+

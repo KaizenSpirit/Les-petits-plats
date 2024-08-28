@@ -29,3 +29,23 @@
 .random-message-title{
   max-width: 1390px;
 }
+
+
+@media (max-width: 400px) {
+  .message-zero-recipes {
+    font-size: 20px;
+    padding-left: 20px;
+  }
+
+  .random-message {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .custom-tag {
+    width: 100%;
+    font-size: 12px;
+    padding: 5px;
+    margin: 2px auto;
+  }
+}

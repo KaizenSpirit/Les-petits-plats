@@ -1,5 +1,5 @@
 function escapeHTML(str) {
-  return str.replace(/[&<>"\/]/g, function(s) { // Remove apostrophe from the list
+  return str.replace(/[&<>"\/]/g, function(s) { 
     const entityMap = {
       '&': '&amp;',
       '<': '&lt;',
@@ -19,7 +19,7 @@ function sanitizeInput(input) {
 }
 
 function validateTextInput(inputElement) {
-  const value = inputElement.value; // Do not sanitize here to preserve apostrophes
+  const value = inputElement.value; 
   const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿâêîôûÂÊÎÔÛ\s-"'\/]*$/;
 
   if (!regex.test(value)) {
@@ -38,7 +38,7 @@ function showErrorMessage(inputElement, message) {
     errorElement.classList.add('error-message');
     inputElement.parentNode.insertBefore(errorElement, inputElement);
   }
-  errorElement.textContent = sanitizeInput(message); // Sanitize the error message
+  errorElement.textContent = sanitizeInput(message); 
 }
 
 function hideErrorMessage(inputElement) {
@@ -65,7 +65,6 @@ function addInputValidation(inputElement) {
   });
 
   inputElement.addEventListener('keydown', function(event) {
-    // Allow backspace and delete keys
     if (event.key === 'Backspace' || event.key === 'Delete') {
       return;
     }
@@ -76,3 +75,4 @@ export {
   sanitizeInput,
   addInputValidation
 };
+
