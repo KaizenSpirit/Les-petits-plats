@@ -107,7 +107,6 @@
   max-height: max-content; 
   overflow: visible;
   cursor: pointer;
-  justify-content: auto;
 }
 
 /* .recipe-card .section-title-recette:hover p {

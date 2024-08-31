@@ -203,9 +203,6 @@ border-radius: 0 0 5px 5px;
       margin: 50px auto;
       font-size: 33px;
     }
-    .tags-container {
-      padding-left: auto;
-     }
   }
 
   @media (max-width: 750px) {
@@ -259,22 +256,22 @@ border-radius: 0 0 5px 5px;
     .dropdowns-container {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Centrer les dropdowns */
-      justify-content: center; /* Centrer les dropdowns verticalement */
-      width: 100%; /* Assurer que le conteneur des dropdowns prend toute la largeur */
-      padding: 0; /* Supprime tout padding potentiel qui pourrait causer le décalage */
+      align-items: center; 
+      justify-content: center; 
+      width: 100%; 
+      padding: 0; 
     }
   
     .dropdown .btn {
-      width: 80%; /* Utiliser 80% de la largeur de l'écran */
-      max-width: 500px; /* Taille maximale des dropdowns */
-      min-width: 300px; /* Taille minimale des dropdowns */
+      width: 80%; 
+      max-width: 500px; 
+      min-width: 300px; 
       padding: 10px;
-      margin: 10px 0; /* Centrer les dropdowns sans décalage */
+      margin: 10px 0; 
     }
   
     .dropdown-menu {
-      width: 80%;
+      width: 100%;
       max-width: 300px;
       min-width: 200px;
       padding: 5px;
@@ -282,40 +279,47 @@ border-radius: 0 0 5px 5px;
     }
     .search-container .glass-icon{
       top: 22px;
-      right: 40px;
-     }
-  
+      right: 25px;
+  }
+    .search-container{
+      width: 100%;
+    }
+
     .dropdownArrow {
-      margin: 0 0 0 50px;
+      margin: 0 0 0 150px;
     }
 
     .search-container .search-close-dropdown {
-      right: 60px;
+      right: 45px;
   }
   }
   
   @media (max-width: 400px) {
     .dropdown .btn {
-      width: 90%; /* Réduire la largeur à 90% pour les très petits écrans */
-      max-width: 280px; /* Taille maximale des dropdowns */
-      min-width: 200px; /* Taille minimale des dropdowns */
+      width: 90%;
+      max-width: 280px; 
+      min-width: 200px; 
       font-size: 14px;
-      margin: 10px 0; /* Centrer les dropdowns sans décalage */
+      margin: 10px 0; 
     }
   
     .dropdown-menu {
-      width: 90%; /* Assurer que le menu déroulant s'ajuste à la largeur du bouton */
+      width: 90%; 
       max-width: 280px;
       min-width: 200px;
       font-size: 14px;
       padding: 3px;
       margin: 0 auto;
     }
-  
+
+    .dropdownArrow {
+      margin: 0 0 0 50px;
+    }
+
     .dropdowns-container {
-      padding: 0; /* Supprime tout padding potentiel qui pourrait causer le décalage */
+      padding: 0;
       align-items: center;
-      width: 100%; /* Assurer que le conteneur des dropdowns prend toute la largeur */
+      width: 100%; 
     }
 
   }
