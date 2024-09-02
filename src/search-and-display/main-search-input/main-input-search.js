@@ -27,9 +27,7 @@ export async function filterRecipes() {
 
     const mainSearchMatch = recipe.name.toLowerCase().includes(mainSearchValue) ||
       recipe.description.toLowerCase().includes(mainSearchValue) ||
-      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(mainSearchValue)) ||
-      recipe.appliance.appliance.toLowerCase().includes(mainSearchValue) ||
-      recipe.ustensils.some(ust => ust.ustensile.toLowerCase().includes(mainSearchValue));
+      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(mainSearchValue))
 
     return ingredientsMatch && appliancesMatch && ustensilsMatch && (mainSearchValue.length < 3 || mainSearchMatch);
   });
