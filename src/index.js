@@ -11,11 +11,12 @@ import fetchRecipes from './api/api.js';
   }
 
   const recipesContainer = document.querySelector('.recipes-liste .container');
-  recipesContainer.innerHTML = '';
-  recipes.forEach(recipe => {
-    recipesContainer.innerHTML += recipe.renderCards();
-  });
-}
+    // FOR LOOP USED
+    recipesContainer.innerHTML = '';
+    for (let i = 0; i < recipes.length; i++) {
+      recipesContainer.innerHTML += recipes[i].renderCards();
+    }
+  }
 
   async function init() {
   const recipes = await fetchRecipes();

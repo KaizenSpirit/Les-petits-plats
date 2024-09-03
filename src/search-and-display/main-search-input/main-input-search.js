@@ -14,7 +14,11 @@ export async function filterRecipes() {
     ...userSelectedDropdownsOptions.ustensile
   ];
 
-  const filteredRecipes = recipes.filter(recipe => {
+  const filteredRecipes = [];
+
+    for (let i = 0; i < recipes.length; i++) {
+      const recipe = recipes[i];
+
     const ingredientsMatch = userSelectedDropdownsOptions.ingredient.every(ing =>
       recipe.ingredients.some(recipeIng => recipeIng.ingredient.toLowerCase() === ing.toLowerCase())
     );
@@ -25,12 +29,25 @@ export async function filterRecipes() {
       recipe.ustensils.some(recipeUst => recipeUst.ustensile && recipeUst.ustensile.toLowerCase() === ust.toLowerCase())
     );
 
-    const mainSearchMatch = recipe.name.toLowerCase().includes(mainSearchValue) ||
-      recipe.description.toLowerCase().includes(mainSearchValue) ||
-      recipe.ingredients.some(ing => ing.ingredient.toLowerCase().includes(mainSearchValue))
+   // WHILE LOOP USED
+    let isMainSearchInIngredient = false;
+    let index = 0;
 
-    return ingredientsMatch && appliancesMatch && ustensilsMatch && (mainSearchValue.length < 3 || mainSearchMatch);
-  });
+    while (index < recipe.ingredients.length && !isMainSearchInIngredient) {
+    if (recipe.ingredients[index].ingredient) {
+      isMainSearchInIngredient = recipe.ingredients[index].ingredient.toLowerCase().includes(mainSearchValue);
+    }
+    index++;
+}
+
+    const mainSearchMatch = recipe.name.toLowerCase().includes(mainSearchValue) ||
+    recipe.description.toLowerCase().includes(mainSearchValue) ||
+    isMainSearchInIngredient
+
+    if (ingredientsMatch && appliancesMatch && ustensilsMatch && (mainSearchValue.length < 3 || mainSearchMatch)) {
+      filteredRecipes.push(recipe);
+      }
+}
 
   displayRecipes(filteredRecipes);
 
